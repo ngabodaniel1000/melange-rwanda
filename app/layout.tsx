@@ -1,0 +1,49 @@
+import type { Metadata } from 'next'
+import { Open_Sans, Montserrat, Geist_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import './globals.css'
+
+const openSans = Open_Sans({ 
+  variable: '--font-open-sans',
+  subsets: ["latin"] 
+});
+
+const montserrat = Montserrat({ 
+  variable: '--font-montserrat',
+  subsets: ["latin"] 
+});
+
+const _geistMono = Geist_Mono({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: 'Mélange Rwanda - Join Rwanda\'s Elite',
+  description: 'Mélange Rwanda is a non-profit organization dedicated to empowering youth through quality education, skills development, and community-driven initiatives.',
+  keywords: 'melange rwanda,Rwanda, education, youth empowerment, non-profit, skills development',
+  openGraph: {
+    title: 'Mélange Rwanda - Join Rwanda\'s Elite',
+    description: 'Empowering Rwanda\'s youth through education and opportunity',
+    type: 'website',
+  },
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#1e40af',
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <body className={`${openSans.variable} ${montserrat.variable} font-sans antialiased bg-background text-foreground`}>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  )
+}
