@@ -1,8 +1,21 @@
+// components/sections/currentopening.tsx
 import { ScrollAnimator } from '@/components/scroll-animator';
-import { JobTable } from '@/components/job-table';
+import { JobTable, Job } from '@/components/job-table';
 import { Button } from '@/components/ui/button';
+import { client } from '@/sanity/lib/client'; 
 
-export function CurrentOpeningsSection() {
+export default async function CurrentOpeningsSection() {
+  let jobs: Job[] = [];
+  let error: string | null = null;
+
+  try {
+    const query = `*[_type == "job"]{ title, department, location, type, link }`;
+    jobs = await client.fetch(query);
+  } catch (err) {
+    console.error('Error fetching jobs:', err);
+    error = 'Failed to load jobs';
+  }
+
   return (
     <ScrollAnimator>
       <section id="current-openings" className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white">
@@ -17,18 +30,18 @@ export function CurrentOpeningsSection() {
           </div>
 
           <div className="mb-8">
-            <JobTable />
+            {error ? (
+              <p className="text-red-500 text-center">{error}</p>
+            ) : (
+              <JobTable jobs={jobs} />
+            )}
           </div>
 
           <div className="text-center">
             <p className="text-slate-600 mb-4">
               Don't see a position that matches your skills? Apply for our general program.
             </p>
-            <Button
-              asChild
-              className="bg-blue-500  hover:bg-primary/90 rounded-full"
-              size="lg"
-            >
+            <Button asChild className="bg-blue-500 hover:bg-primary/90 rounded-full" size="lg">
               <a href="https://forms.google.com/general-application" target="_blank" rel="noopener noreferrer">
                 General Application
               </a>

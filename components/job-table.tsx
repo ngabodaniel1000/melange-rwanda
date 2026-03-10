@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 
-interface Job {
+export interface Job {
   title: string;
   department: string;
   location: string;
@@ -10,41 +10,12 @@ interface Job {
 }
 
 interface JobTableProps {
-  jobs?: Job[];
+  jobs: Job[];
 }
 
-const defaultJobs: Job[] = [
-  {
-    title: 'Program Coordinator',
-    department: 'Education',
-    location: 'Kigali, Rwanda',
-    type: 'Full-time',
-    link: 'https://forms.google.com/example1',
-  },
-  {
-    title: 'Community Engagement Officer',
-    department: 'Outreach',
-    location: 'Kigali, Rwanda',
-    type: 'Full-time',
-    link: 'https://forms.google.com/example2',
-  },
-  {
-    title: 'Data & Analytics Specialist',
-    department: 'Operations',
-    location: 'Kigali, Rwanda',
-    type: 'Full-time',
-    link: 'https://forms.google.com/example3',
-  },
-  {
-    title: 'Youth Mentor',
-    department: 'Education',
-    location: 'Kigali, Rwanda',
-    type: 'Part-time',
-    link: 'https://forms.google.com/example4',
-  },
-];
+export function JobTable({ jobs }: JobTableProps) {
+  if (!jobs?.length) return <p>No jobs available.</p>;
 
-export function JobTable({ jobs = defaultJobs }: JobTableProps) {
   return (
     <div className="w-full overflow-x-auto">
       <table className="w-full text-sm">
@@ -69,12 +40,7 @@ export function JobTable({ jobs = defaultJobs }: JobTableProps) {
                 </span>
               </td>
               <td className="py-4 px-4 text-blue-500 text-center">
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="rounded-full"
-                >
+                <Button asChild variant="outline" size="sm" className="rounded-full">
                   <a href={job.link} target="_blank" rel="noopener noreferrer">
                     View <ExternalLink className="w-3 h-3 ml-1" />
                   </a>
