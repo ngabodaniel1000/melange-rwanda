@@ -26,7 +26,7 @@ export function MelangeDescriptionSection() {
               >
                 <source src="/bridge2rwanda.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10 flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-transparent to-transparent z-10 flex flex-col justify-end p-8">
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 animate-scale-in">
                   <p className="text-white font-semibold mb-2 flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />

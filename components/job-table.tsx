@@ -1,3 +1,4 @@
+// components/job-table.tsx
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -33,52 +34,61 @@ export function JobTable({ jobs }: JobTableProps) {
   }
 
   return (
-    <div className="w-full overflow-x-auto">
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="border-b-2 border-primary/10">
-            {['Position', 'Department', 'Location', 'Type', 'Action'].map((h, i) => (
-              <th
-                key={h}
-                className={`py-4 px-4 font-bold text-foreground tracking-wide ${i === 4 ? 'text-center' : 'text-left'}`}
+    <table className="w-full text-sm">
+      <thead>
+        <tr className="border-b-2 border-primary/10 bg-muted/30">
+          <th className="py-4 px-3 sm:px-4 font-bold text-foreground tracking-wide text-left whitespace-nowrap">
+            Position
+          </th>
+          <th className="py-4 px-3 sm:px-4 font-bold text-foreground tracking-wide text-left whitespace-nowrap">
+            Department
+          </th>
+          <th className="py-4 px-3 sm:px-4 font-bold text-foreground tracking-wide text-left whitespace-nowrap">
+            Location
+          </th>
+          <th className="py-4 px-3 sm:px-4 font-bold text-foreground tracking-wide text-left whitespace-nowrap">
+            Type
+          </th>
+          <th className="py-4 px-3 sm:px-4 font-bold text-foreground tracking-wide text-center whitespace-nowrap">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {jobs.map((job, index) => (
+          <tr
+            key={index}
+            className="border-b border-border/60 hover:bg-primary/5 transition-all duration-200 animate-slide-up group"
+            style={{ animationDelay: `${index * 60}ms` }}
+          >
+            <td className="py-4 px-3 sm:px-4 font-semibold text-foreground group-hover:text-primary transition-colors whitespace-nowrap">
+              {job.title}
+            </td>
+            <td className="py-4 px-3 sm:px-4 text-muted-foreground whitespace-nowrap">
+              {job.department}
+            </td>
+            <td className="py-4 px-3 sm:px-4 text-muted-foreground whitespace-nowrap">
+              {job.location}
+            </td>
+            <td className="py-4 px-3 sm:px-4 whitespace-nowrap">
+              <span className={`px-2 sm:px-3 py-1 sm:py-1.5 text-xs font-semibold rounded-full ${typeColors[index % 3]}`}>
+                {job.type}
+              </span>
+            </td>
+            <td className="py-4 px-3 sm:px-4 text-center whitespace-nowrap">
+              <Button
+                asChild
+                size="sm"
+                className="rounded-full bg-primary hover:bg-primary/90 text-white hover:scale-105 transition-transform shadow-sm hover:shadow-primary/30 hover:shadow-md text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2"
               >
-                {h}
-              </th>
-            ))}
+                <a href={job.link} target="_blank" rel="noopener noreferrer">
+                  View <ExternalLink className="w-3 h-3 ml-1" />
+                </a>
+              </Button>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {jobs.map((job, index) => (
-            <tr
-              key={index}
-              className="border-b border-border/60 hover:bg-primary/5 transition-all duration-200 animate-slide-up group"
-              style={{ animationDelay: `${index * 60}ms` }}
-            >
-              <td className="py-4 px-4 font-semibold text-foreground group-hover:text-primary transition-colors">
-                {job.title}
-              </td>
-              <td className="py-4 px-4 text-muted-foreground">{job.department}</td>
-              <td className="py-4 px-4 text-muted-foreground">{job.location}</td>
-              <td className="py-4 px-4">
-                <span className={`px-3 py-1.5 text-xs font-semibold rounded-full ${typeColors[index % 3]}`}>
-                  {job.type}
-                </span>
-              </td>
-              <td className="py-4 px-4 text-center">
-                <Button
-                  asChild
-                  size="sm"
-                  className="rounded-full bg-primary hover:bg-primary/90 text-white hover:scale-105 transition-transform shadow-sm hover:shadow-primary/30 hover:shadow-md"
-                >
-                  <a href={job.link} target="_blank" rel="noopener noreferrer">
-                    View <ExternalLink className="w-3 h-3 ml-1" />
-                  </a>
-                </Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
   );
 }

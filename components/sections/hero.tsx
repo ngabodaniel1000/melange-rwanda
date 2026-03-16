@@ -18,23 +18,25 @@ export function HeroSection() {
       </video>
 
       {/* Animated gradient overlay – subtle flag tint */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-primary/30 via-black/20 to-accent/20 animate-gradient-text" />
+      <div className="absolute inset-0 z-0 bg-linear-to-b from-primary/30 via-black/20 to-accent/20 animate-gradient-text" />
 
-      {/* Top Banner – slides in from top, refined for mobile fit */}
+      {/* Top Banner – reduced height for mobile */}
       <div
-        className="absolute top-[80px] sm:top-[90px] left-1/2 -translate-x-1/2 w-[92%] sm:w-[calc(100%-2rem)] max-w-screen-lg bg-primary/95 text-white z-20 py-4 px-4 sm:px-6 lg:px-8 flex flex-col xl:flex-row items-center justify-center gap-4 xl:gap-8 shadow-2xl border border-white/10 rounded-2xl backdrop-blur-md animate-fade-in"
+        className="absolute top-[78px] sm:top-[90px] left-1/2 -translate-x-1/2 w-[92%] sm:w-[calc(100%-2rem)] max-w-screen-lg bg-primary/95 text-white z-20 py-3 sm:py-4 px-4 sm:px-6 lg:px-8 flex flex-col xl:flex-row items-center justify-center gap-2 sm:gap-4 xl:gap-8 shadow-2xl border border-white/10 rounded-xl sm:rounded-2xl backdrop-blur-md animate-fade-in"
         style={{ animationDelay: '200ms' }}
       >
-        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left text-lg sm:text-2xl lg:text-3xl font-light tracking-wide">
-          <span className="animate-slide-up stagger-1">2026 Join Rwanda&rsquo;s Elite</span>
-          <span className="relative inline-block font-semibold z-10 text-secondary animate-slide-up stagger-2">
+        <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center sm:text-left">
+          <span className="animate-slide-up stagger-1 text-sm sm:text-lg lg:text-3xl font-light tracking-wide">
+            2026 Join Rwanda&rsquo;s Elite
+          </span>
+          <span className="relative inline-block font-semibold z-10 text-secondary animate-slide-up stagger-2 text-sm sm:text-lg lg:text-3xl">
             Now Open! 🇷🇼
           </span>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 xl:gap-8 mt-4 xl:mt-0 animate-slide-up stagger-3">
+        <div className="flex flex-col sm:flex-row items-center gap-2 xl:gap-8 mt-1 xl:mt-0 animate-slide-up stagger-3">
           <Button
-            className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-6 text-base tracking-wider rounded-full border-none transition-all shadow-lg hover:scale-110 hover:shadow-secondary/30 hover:shadow-xl"
+            className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-4 sm:px-8 py-2 sm:py-6 text-xs sm:text-base tracking-wider rounded-full border-none transition-all shadow-lg hover:scale-105 sm:hover:scale-110 hover:shadow-secondary/30 hover:shadow-xl"
             onClick={() => {
               const element = document.getElementById('current-openings');
               element?.scrollIntoView({ behavior: 'smooth' });

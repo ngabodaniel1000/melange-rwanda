@@ -51,26 +51,38 @@ export default async function CurrentOpeningsSection() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Job table – zooms in */}
+        {/* Job table – zooms in with proper scrolling */}
         <ScrollAnimator variant="zoom-in" duration={800} delay={100}>
-          <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 sm:p-10 mb-8 -mt-24 relative z-10 hover-lift">
+          <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-4 sm:p-6 lg:p-10 mb-8 -mt-24 relative z-10 hover-lift">
             {error ? (
               <p className="text-red-500 text-center py-8">{error}</p>
             ) : (
-              <JobTable jobs={jobs} />
+              <>
+                {/* Mobile scroll hint - optional */}
+                <div className="text-xs text-muted-foreground text-right mb-2 sm:hidden">
+                  ← Swipe to scroll →
+                </div>
+                
+                {/* Scrollable table container */}
+                <div className="w-full overflow-x-auto">
+                  <div className="min-w-[800px]">
+                    <JobTable jobs={jobs} />
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </ScrollAnimator>
 
         {/* CTA – slides up */}
         <ScrollAnimator variant="fade-up" duration={700} delay={200}>
-          <div className="text-center mt-12 bg-secondary/5 p-8 rounded-3xl border border-secondary/20 hover-lift">
+          <div className="text-center mt-8 sm:mt-12 bg-secondary/5 p-6 sm:p-8 rounded-3xl border border-secondary/20 hover-lift">
             <p className="text-slate-700 font-medium mb-4">
               Don&rsquo;t see a position that matches your skills?
             </p>
             <Button
               asChild
-              className="bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-md px-8 py-6 hover:scale-105 hover:shadow-primary/30 hover:shadow-xl"
+              className="bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-md px-6 sm:px-8 py-4 sm:py-6 hover:scale-105 hover:shadow-primary/30 hover:shadow-xl text-sm sm:text-base"
               size="lg"
             >
               <a href="https://forms.google.com/general-application" target="_blank" rel="noopener noreferrer">
