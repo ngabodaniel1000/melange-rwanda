@@ -39,7 +39,7 @@ export function JobTable({ jobs }: JobTableProps) {
                   {job.type}
                 </span>
               </td>
-              <td className="py-4 px-4 text-blue-500 text-center">
+              <td className="py-4 px-4 text-primary text-center">
                 <Button asChild variant="outline" size="sm" className="rounded-full">
                   <a href={job.link} target="_blank" rel="noopener noreferrer">
                     View <ExternalLink className="w-3 h-3 ml-1" />

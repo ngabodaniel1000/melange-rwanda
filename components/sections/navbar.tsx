@@ -16,17 +16,7 @@ const NAV_LINKS = [
 ];
 
 export function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
@@ -46,39 +36,29 @@ export function Navbar() {
 
     return (
         <header
-            className={cn(
-                'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-                isScrolled
-                    ? 'bg-background/80 backdrop-blur-md shadow-sm py-3 border-border border-b'
-                    : 'bg-transparent py-5'
-            )}
+            className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur shadow-sm py-4 border-b border-primary/10"
         >
+         
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between">
                     <div className="flex-shrink-0">
                         <a
                             href="#home"
                             onClick={(e) => scrollToSection(e, '#home')}
-                            className={cn(
-                                'text-2xl font-bold font-montserrat transition-colors',
-                                isScrolled ? 'text-foreground' : 'text-slate-900'
-                            )}
+                            className="text-2xl lg:text-3xl font-bold font-montserrat text-primary tracking-wide"
                         >
                             Mélange
                         </a>
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+                    <nav className="hidden md:flex items-center gap-6 lg:gap-10">
                         {NAV_LINKS.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
                                 onClick={(e) => scrollToSection(e, link.href)}
-                                className={cn(
-                                    'text-sm font-medium transition-colors hover:text-primary',
-                                    isScrolled ? 'text-muted-foreground hover:text-foreground' : 'text-slate-600 hover:text-slate-900'
-                                )}
+                                className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
                             >
                                 {link.name}
                             </a>
@@ -87,10 +67,7 @@ export function Navbar() {
 
                     <div className="hidden md:flex items-center">
                         <Button
-                            className={cn(
-                                'rounded-full px-6 transition-all',
-                                isScrolled ? 'bg-blue-500 hover:bg-blue-700' : 'text-primary-foreground bg-blue-500 hover:bg-blue-700 shadow-sm'
-                            )}
+                            className="rounded-full px-8 py-5 text-base font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transition-all hover:scale-105"
                             onClick={() => {
                                 document.getElementById('current-openings')?.scrollIntoView({ behavior: 'smooth' });
                             }}
@@ -103,17 +80,14 @@ export function Navbar() {
                     <div className="md:hidden flex items-center">
                         <button
                             type="button"
-                            className={cn(
-                                'p-2 -mr-2 rounded-md transition-colors',
-                                isScrolled ? 'text-foreground' : 'text-slate-900'
-                            )}
+                            className="p-2 -mr-2 rounded-md text-black hover:text-black/80 transition-colors"
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         >
                             <span className="sr-only">Open main menu</span>
                             {mobileMenuOpen ? (
-                                <X className="h-6 w-6" aria-hidden="true" />
+                                <X className="h-7 w-7" aria-hidden="true" />
                             ) : (
-                                <Menu className="h-6 w-6" aria-hidden="true" />
+                                <Menu className="h-7 w-7" aria-hidden="true" />
                             )}
                         </button>
                     </div>
@@ -122,21 +96,21 @@ export function Navbar() {
 
             {/* Mobile Navigation */}
             {mobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg animate-in slide-in-from-top-2">
+                <div className="md:hidden absolute top-full left-0 right-0 bg-[#d9dadd]/95 backdrop-blur-md border-b border-black/10 shadow-lg">
                     <div className="px-4 pt-2 pb-6 space-y-1">
                         {NAV_LINKS.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
                                 onClick={(e) => scrollToSection(e, link.href)}
-                                className="block px-3 py-4 text-base font-medium text-foreground hover:bg-muted rounded-md transition-colors"
+                                className="block px-3 py-4 text-base font-medium text-black/80 hover:text-black hover:bg-black/5 rounded-md transition-colors"
                             >
                                 {link.name}
                             </a>
                         ))}
                         <div className="pt-4 px-3">
                             <Button
-                                className="w-full rounded-full"
+                                className="w-full rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md"
                                 onClick={() => {
                                     setMobileMenuOpen(false);
                                     document.getElementById('current-openings')?.scrollIntoView({ behavior: 'smooth' });

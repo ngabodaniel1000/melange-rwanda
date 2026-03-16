@@ -2,7 +2,13 @@ import { Mail, MapPin, Phone, Linkedin, Twitter, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="w-full bg-slate-900 text-slate-300">
+    <footer className="w-full bg-[#0a2540] text-slate-300 relative overflow-hidden">
+      {/* Rwandan Flag Top Bar */}
+      <div className="absolute top-0 left-0 w-full h-[4px] grid grid-cols-12">
+        <div className="col-span-12 h-full bg-primary"></div>
+        <div className="col-span-12 h-[1px] bg-secondary"></div>
+        <div className="col-span-12 h-[1px] bg-accent"></div>
+      </div>
       <div className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -97,7 +103,7 @@ export function Footer() {
           {/* Divider */}
           <div className="border-t border-slate-700 pt-8">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-400">
-              <p>&copy; 2024 Mélange Rwanda. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} Mélange Rwanda. All rights reserved.</p>
               <div className="flex gap-4">
                 <a href="#" className="hover:text-white transition-colors">
                   Privacy Policy

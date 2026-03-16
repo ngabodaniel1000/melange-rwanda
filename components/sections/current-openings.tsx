@@ -2,7 +2,7 @@
 import { ScrollAnimator } from '@/components/scroll-animator';
 import { JobTable, Job } from '@/components/job-table';
 import { Button } from '@/components/ui/button';
-import { client } from '@/sanity/lib/client'; 
+import { client } from '@/sanity/lib/client';
 import Image from 'next/image';
 
 export default async function CurrentOpeningsSection() {
@@ -19,7 +19,8 @@ export default async function CurrentOpeningsSection() {
 
   return (
     <ScrollAnimator>
-      <section id="current-openings" className="w-full bg-slate-50 relative pb-16 sm:pb-24 lg:pb-32">
+      <section id="current-openings" className="w-full bg-primary/5 relative pb-16 sm:pb-24 lg:pb-32">
+        <div className="absolute top-0 left-0 w-2 h-full bg-primary"></div>
         {/* Header with image */}
         <div className="relative h-[300px] w-full mb-16 overflow-hidden">
           <Image
@@ -28,7 +29,7 @@ export default async function CurrentOpeningsSection() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-blue-900/60 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-primary/60 mix-blend-multiply"></div>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-white drop-shadow-md">
               Current Openings
@@ -48,11 +49,11 @@ export default async function CurrentOpeningsSection() {
             )}
           </div>
 
-          <div className="text-center mt-12 bg-blue-50 p-8 rounded-3xl border border-blue-100">
+          <div className="text-center mt-12 bg-secondary/5 p-8 rounded-3xl border border-secondary/20">
             <p className="text-slate-700 font-medium mb-4">
               Don't see a position that matches your skills?
             </p>
-            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all shadow-md px-8 py-6" size="lg">
+            <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-md px-8 py-6" size="lg">
               <a href="https://forms.google.com/general-application" target="_blank" rel="noopener noreferrer">
                 Submit General Application
               </a>

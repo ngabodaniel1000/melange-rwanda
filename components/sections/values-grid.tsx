@@ -54,23 +54,24 @@ const values: ValueCard[] = [
 export function ValuesGridSection() {
   return (
     <ScrollAnimator>
-      <section id="values" className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 relative">
-        <div className="absolute top-0 right-0 w-full h-96 bg-gradient-to-b from-blue-50 to-transparent absolute z-0"></div>
+      <section id="values" className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-accent/5 relative">
+        <div className="absolute top-0 left-0 w-2 h-full bg-accent"></div>
+        <div className="absolute top-0 right-0 w-full h-96 bg-gradient-to-b from-secondary/10 to-transparent z-0"></div>
         <div className="max-w-7xl mx-auto relative z-10">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <div className="inline-block px-4 py-2 bg-white text-blue-600 rounded-full font-semibold text-sm mb-6 shadow-sm border border-blue-100">
+              <div className="inline-block px-4 py-2 bg-white text-primary rounded-full font-semibold text-sm mb-6 shadow-sm border border-primary/20">
                 Our Values
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 text-slate-900 tracking-tight">
-                Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Join Us</span>
+                Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">Join Us</span>
               </h2>
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-6">
                 Become part of a community dedicated to excellence, growth, and positive impact. Here is what we stand for and what you can expect feeling every day.
               </p>
             </div>
-            
+
             <div className="relative h-64 lg:h-80 w-full rounded-3xl overflow-hidden shadow-xl">
               <Image
                 src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=2000"
@@ -86,11 +87,17 @@ export function ValuesGridSection() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-blue-200 transition-all duration-300 group relative overflow-hidden"
+                className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-primary/20 transition-all duration-300 group relative overflow-hidden"
               >
-                <div className="absolute -right-4 -top-4 w-24 h-24 bg-blue-50 rounded-full blur-2xl group-hover:bg-blue-100 transition-colors"></div>
+                <div className={`absolute -right-4 -top-4 w-24 h-24 rounded-full blur-2xl transition-colors ${index % 3 === 0 ? 'bg-primary/5 group-hover:bg-primary/10' :
+                  index % 3 === 1 ? 'bg-secondary/5 group-hover:bg-secondary/10' :
+                    'bg-accent/5 group-hover:bg-accent/10'
+                  }`}></div>
                 <div className="relative z-10">
-                  <div className="mb-6 inline-flex p-3 bg-blue-50 text-blue-600 rounded-2xl group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                  <div className={`mb-6 inline-flex p-3 rounded-2xl group-hover:scale-110 group-hover:text-white transition-all duration-300 ${index % 3 === 0 ? 'bg-primary/10 text-primary group-hover:bg-primary' :
+                    index % 3 === 1 ? 'bg-secondary/10 text-secondary-foreground group-hover:bg-secondary' :
+                      'bg-accent/10 text-accent group-hover:bg-accent'
+                    }`}>
                     {value.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-slate-900">

@@ -3,14 +3,14 @@ import { Open_Sans, Montserrat, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const openSans = Open_Sans({ 
+const openSans = Open_Sans({
   variable: '--font-open-sans',
-  subsets: ["latin"] 
+  subsets: ["latin"]
 });
 
-const montserrat = Montserrat({ 
+const montserrat = Montserrat({
   variable: '--font-montserrat',
-  subsets: ["latin"] 
+  subsets: ["latin"]
 });
 
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
@@ -30,7 +30,7 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-  themeColor: '#1e40af',
+  themeColor: '#00A1DE',
 }
 
 export default function RootLayout({

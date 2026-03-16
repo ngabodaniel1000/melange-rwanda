@@ -33,12 +33,13 @@ const steps: Step[] = [
 export function HowItWorksSection() {
   return (
     <ScrollAnimator>
-      <section id="how-it-works" className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+      <section id="how-it-works" className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-secondary/5 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-2 h-full bg-secondary shadow-lg shadow-secondary/20"></div>
         <div className="max-w-7xl mx-auto">
-          
+
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 text-slate-900 tracking-tight">
-              Your Journey <span className="text-blue-600">With Us</span>
+              Your Journey <span className="text-primary">With Us</span>
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Our simple but powerful three-step process to unlocking your full potential.
@@ -47,25 +48,34 @@ export function HowItWorksSection() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Steps Side */}
-            <div className="space-y-8 relative before:absolute before:inset-0 before:w-1 before:bg-blue-100 before:left-8 before:top-2 before:bottom-2">
-              {steps.map((step, index) => (
-                <div key={index} className="relative flex items-start gap-6 group">
-                  <div className="relative z-10 w-16 h-16 bg-white border-4 border-blue-50 rounded-2xl shadow-sm flex items-center justify-center text-blue-600 group-hover:scale-110 group-hover:border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                    {step.icon}
-                  </div>
-                  <div className="flex-1 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-baseline gap-3 mb-2">
-                      <span className="text-blue-400 font-bold text-lg">{step.number}.</span>
-                      <h3 className="text-2xl font-bold text-slate-900">
-                        {step.title}
-                      </h3>
+            <div className="space-y-8 relative before:absolute before:inset-0 before:w-1 before:bg-slate-100 before:left-8 before:top-2 before:bottom-2">
+              {steps.map((step, index) => {
+                const colors = [
+                  { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/20', hoverBg: 'group-hover:bg-primary', lightText: 'text-primary/60' },
+                  { bg: 'bg-secondary/10', text: 'text-secondary-foreground', border: 'border-secondary/20', hoverBg: 'group-hover:bg-secondary', lightText: 'text-secondary-foreground/60' },
+                  { bg: 'bg-accent/10', text: 'text-accent', border: 'border-accent/20', hoverBg: 'group-hover:bg-accent', lightText: 'text-accent/60' }
+                ];
+                const color = colors[index % 3];
+
+                return (
+                  <div key={index} className="relative flex items-start gap-6 group">
+                    <div className={`relative z-10 w-16 h-16 bg-white border-4 ${color.border} rounded-2xl shadow-sm flex items-center justify-center ${color.text} group-hover:scale-110 ${color.hoverBg} group-hover:text-white transition-all duration-300`}>
+                      {step.icon}
                     </div>
-                    <p className="text-slate-600 leading-relaxed text-sm">
-                      {step.description}
-                    </p>
+                    <div className="flex-1 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300">
+                      <div className="flex items-baseline gap-3 mb-2">
+                        <span className={`font-bold text-lg ${color.text}`}>{step.number}.</span>
+                        <h3 className="text-2xl font-bold text-slate-900">
+                          {step.title}
+                        </h3>
+                      </div>
+                      <p className="text-slate-600 leading-relaxed text-sm">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Image Side */}
@@ -86,7 +96,7 @@ export function HowItWorksSection() {
               </div>
             </div>
           </div>
-          
+
         </div>
       </section>
     </ScrollAnimator>

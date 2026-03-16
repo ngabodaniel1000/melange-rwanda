@@ -37,13 +37,13 @@ export function SubscriptionForm({ className = '' }: SubscriptionFormProps) {
             required
             className="flex-1"
           />
-          <Button type="submit" className="bg-blue-500 hover:bg-blue-700 rounded-full">
+          <Button type="submit" className="bg-primary hover:bg-primary/90 rounded-full">
             Subscribe
           </Button>
         </div>
       </div>
       {submitted && (
-        <p className="text-sm text-green-600">
+        <p className="text-sm text-accent">
           Thank you for subscribing!
         </p>
       )}
