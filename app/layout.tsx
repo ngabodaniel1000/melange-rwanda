@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${openSans.variable} ${montserrat.variable} font-sans antialiased bg-background text-foreground`}>
+      <body className={`${openSans.variable} ${montserrat.variable} font-sans antialiased bg-background text-foreground overflow-x-hidden`}>
         {children}
         <Analytics />
       </body>

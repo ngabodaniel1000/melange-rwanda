@@ -1,4 +1,4 @@
-// components/sections/currentopening.tsx
+// components/sections/current-openings.tsx
 import { ScrollAnimator } from '@/components/scroll-animator';
 import { JobTable, Job } from '@/components/job-table';
 import { Button } from '@/components/ui/button';
@@ -18,49 +18,69 @@ export default async function CurrentOpeningsSection() {
   }
 
   return (
-    <ScrollAnimator>
-      <section id="current-openings" className="w-full bg-primary/5 relative pb-16 sm:pb-24 lg:pb-32">
-        <div className="absolute top-0 left-0 w-2 h-full bg-primary"></div>
-        {/* Header with image */}
+    <section
+      id="current-openings"
+      className="w-full bg-primary/5 relative pb-16 sm:pb-24 lg:pb-32 overflow-hidden"
+    >
+      <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
+
+      {/* Header image with scroll animation */}
+      <ScrollAnimator variant="zoom-out" duration={900}>
         <div className="relative h-[300px] w-full mb-16 overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=2000"
             alt="Colleagues collaborating"
             fill
-            className="object-cover"
+            className="object-cover hover:scale-105 transition-transform duration-1000"
           />
-          <div className="absolute inset-0 bg-primary/60 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-primary/60 mix-blend-multiply" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-white drop-shadow-md">
-              Current Openings
-            </h2>
-            <p className="text-lg text-slate-100 max-w-2xl font-medium drop-shadow-md">
-              Join our growing team and make an impact in Rwanda's education and empowerment sector.
-            </p>
+            <ScrollAnimator variant="fade-down" duration={700} delay={200}>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-white drop-shadow-md">
+                Current Openings
+              </h2>
+            </ScrollAnimator>
+            <ScrollAnimator variant="fade-up" duration={600} delay={350}>
+              <p className="text-lg text-slate-100 max-w-2xl font-medium drop-shadow-md">
+                Join our growing team and make an impact in Rwanda&rsquo;s education and empowerment sector.
+              </p>
+            </ScrollAnimator>
           </div>
         </div>
+      </ScrollAnimator>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 sm:p-10 mb-8 -mt-24 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Job table – zooms in */}
+        <ScrollAnimator variant="zoom-in" duration={800} delay={100}>
+          <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 sm:p-10 mb-8 -mt-24 relative z-10 hover-lift">
             {error ? (
               <p className="text-red-500 text-center py-8">{error}</p>
             ) : (
               <JobTable jobs={jobs} />
             )}
           </div>
+        </ScrollAnimator>
 
-          <div className="text-center mt-12 bg-secondary/5 p-8 rounded-3xl border border-secondary/20">
+        {/* CTA – slides up */}
+        <ScrollAnimator variant="fade-up" duration={700} delay={200}>
+          <div className="text-center mt-12 bg-secondary/5 p-8 rounded-3xl border border-secondary/20 hover-lift">
             <p className="text-slate-700 font-medium mb-4">
-              Don't see a position that matches your skills?
+              Don&rsquo;t see a position that matches your skills?
             </p>
-            <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-md px-8 py-6" size="lg">
+            <Button
+              asChild
+              className="bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-md px-8 py-6 hover:scale-105 hover:shadow-primary/30 hover:shadow-xl"
+              size="lg"
+            >
               <a href="https://forms.google.com/general-application" target="_blank" rel="noopener noreferrer">
                 Submit General Application
               </a>
             </Button>
           </div>
-        </div>
-      </section>
-    </ScrollAnimator>
+        </ScrollAnimator>
+
+      </div>
+    </section>
   );
 }

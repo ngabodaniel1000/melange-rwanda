@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
     { name: 'Home', href: '#home' },
@@ -17,57 +16,73 @@ const NAV_LINKS = [
 
 export function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    // Shrink navbar on scroll
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 40);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
         setMobileMenuOpen(false);
-
-        // Check if the section exists
         const element = document.querySelector(href);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            // If no element by ID, scroll to top if href is #home, or just rely on default anchor behavior
-            if (href === '#home') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+        } else if (href === '#home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
     return (
         <header
-            className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur shadow-sm py-4 border-b border-primary/10"
+            className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-primary/10 transition-all duration-300 ${scrolled ? 'py-3 shadow-md' : 'py-4 shadow-sm'
+                }`}
         >
-         
+            {/* 3-colour flag accent bar at very top */}
+            <div className="absolute top-0 left-0 w-full h-[3px] flex">
+                <div className="flex-1 bg-primary" />
+                <div className="w-[12%] bg-secondary" />
+                <div className="flex-1 bg-accent" />
+            </div>
+
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between">
+
+                    {/* Logo */}
                     <div className="flex-shrink-0">
                         <a
                             href="#home"
                             onClick={(e) => scrollToSection(e, '#home')}
-                            className="text-2xl lg:text-3xl font-bold font-montserrat text-primary tracking-wide"
+                            className={`font-bold font-montserrat text-primary tracking-wide transition-all duration-300 ${scrolled ? 'text-xl' : 'text-2xl lg:text-3xl'
+                                }`}
                         >
                             Mélange
                         </a>
                     </div>
 
-                    {/* Desktop Navigation */}
+                    {/* Desktop Nav */}
                     <nav className="hidden md:flex items-center gap-6 lg:gap-10">
                         {NAV_LINKS.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
                                 onClick={(e) => scrollToSection(e, link.href)}
-                                className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
+                                className="relative text-sm font-medium text-foreground/70 hover:text-primary transition-colors group"
                             >
                                 {link.name}
+                                {/* Animated underline */}
+                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary rounded-full transition-all duration-300 group-hover:w-full" />
                             </a>
                         ))}
                     </nav>
 
                     <div className="hidden md:flex items-center">
                         <Button
-                            className="rounded-full px-8 py-5 text-base font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transition-all hover:scale-105"
+                            className={`rounded-full font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transition-all hover:scale-105 hover:shadow-primary/30 hover:shadow-xl ${scrolled ? 'px-6 py-4 text-sm' : 'px-8 py-5 text-base'
+                                }`}
                             onClick={() => {
                                 document.getElementById('current-openings')?.scrollIntoView({ behavior: 'smooth' });
                             }}
@@ -76,16 +91,16 @@ export function Navbar() {
                         </Button>
                     </div>
 
-                    {/* Mobile Menu Toggle */}
+                    {/* Mobile toggle */}
                     <div className="md:hidden flex items-center">
                         <button
                             type="button"
-                            className="p-2 -mr-2 rounded-md text-black hover:text-black/80 transition-colors"
+                            className="p-2 -mr-2 rounded-md text-foreground/80 hover:text-primary transition-colors"
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            aria-label="Toggle menu"
                         >
-                            <span className="sr-only">Open main menu</span>
                             {mobileMenuOpen ? (
-                                <X className="h-7 w-7" aria-hidden="true" />
+                                <X className="h-7 w-7 animate-scale-in" aria-hidden="true" />
                             ) : (
                                 <Menu className="h-7 w-7" aria-hidden="true" />
                             )}
@@ -94,23 +109,28 @@ export function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Navigation */}
-            {mobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 right-0 bg-[#d9dadd]/95 backdrop-blur-md border-b border-black/10 shadow-lg">
+            {/* Mobile menu – slides down */}
+            <div
+                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+            >
+                <div className="absolute top-full left-0 right-0 bg-background/98 backdrop-blur-md border-b border-primary/10 shadow-xl">
                     <div className="px-4 pt-2 pb-6 space-y-1">
-                        {NAV_LINKS.map((link) => (
+                        {NAV_LINKS.map((link, i) => (
                             <a
                                 key={link.name}
                                 href={link.href}
                                 onClick={(e) => scrollToSection(e, link.href)}
-                                className="block px-3 py-4 text-base font-medium text-black/80 hover:text-black hover:bg-black/5 rounded-md transition-colors"
+                                className="flex items-center justify-between px-3 py-4 text-base font-medium text-foreground/80 hover:text-primary hover:bg-primary/5 rounded-xl transition-all animate-slide-up"
+                                style={{ animationDelay: `${i * 50}ms` }}
                             >
                                 {link.name}
+                                <span className="text-primary/30 text-xs">→</span>
                             </a>
                         ))}
                         <div className="pt-4 px-3">
                             <Button
-                                className="w-full rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md"
+                                className="w-full rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md hover:scale-[1.02] transition-transform"
                                 onClick={() => {
                                     setMobileMenuOpen(false);
                                     document.getElementById('current-openings')?.scrollIntoView({ behavior: 'smooth' });
@@ -121,7 +141,7 @@ export function Navbar() {
                         </div>
                     </div>
                 </div>
-            )}
+            </div>
         </header>
     );
 }

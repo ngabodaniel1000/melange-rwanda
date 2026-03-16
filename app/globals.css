@@ -106,8 +106,16 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
   h1,
@@ -121,6 +129,8 @@
 }
 
 @layer utilities {
+
+  /* ── Spin slow (Rwanda sun) ────────────────────── */
   @keyframes spin-slow {
     from {
       transform: translate(-50%, -50%) rotate(0deg);
@@ -135,6 +145,7 @@
     animation: spin-slow 20s linear infinite;
   }
 
+  /* ── Fade in (legacy) ──────────────────────────── */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -150,5 +161,176 @@
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
     opacity: 0;
+  }
+
+  /* ── Float (hero elements) ─────────────────────── */
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* ── Shimmer (skeleton / highlight) ───────────── */
+  @keyframes shimmer {
+    from {
+      background-position: -200% center;
+    }
+
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+
+  /* ── Gradient text shift ───────────────────────── */
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient-text {
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+  }
+
+  /* ── Pulse glow (badge highlights) ─────────────── */
+  @keyframes glow-pulse {
+
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(var(--primary-rgb, 59, 130, 246), 0.4);
+    }
+
+    50% {
+      box-shadow: 0 0 20px 8px rgba(var(--primary-rgb, 59, 130, 246), 0.15);
+    }
+  }
+
+  .animate-glow {
+    animation: glow-pulse 2.5s ease-in-out infinite;
+  }
+
+  /* ── Ticker / slide-left (banner) ──────────────── */
+  @keyframes ticker {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-ticker {
+    animation: ticker 20s linear infinite;
+  }
+
+  /* ── Scale in (modal / card entrance) ─────────── */
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* ── Slide up (stagger children) ──────────────── */
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* ── Stagger delay helpers ─────────────────────── */
+  .stagger-1 {
+    animation-delay: 100ms;
+  }
+
+  .stagger-2 {
+    animation-delay: 200ms;
+  }
+
+  .stagger-3 {
+    animation-delay: 300ms;
+  }
+
+  .stagger-4 {
+    animation-delay: 400ms;
+  }
+
+  .stagger-5 {
+    animation-delay: 500ms;
+  }
+
+  .stagger-6 {
+    animation-delay: 600ms;
+  }
+
+  /* ── Hover lift ────────────────────────────────── */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  /* ── Stripe accent border ──────────────────────── */
+  .flag-bar {
+    position: relative;
+  }
+
+  .flag-bar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--color-primary) 33%, var(--color-secondary) 33% 66%, var(--color-accent) 66%);
+    border-radius: 0 2px 2px 0;
   }
 }
