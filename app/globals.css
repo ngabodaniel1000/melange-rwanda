@@ -313,9 +313,11 @@
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
   }
 
-  .hover-lift:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  @media (hover: hover) {
+    .hover-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
   }
 
   /* ── Stripe accent border ──────────────────────── */
