@@ -16,7 +16,7 @@ export function MissionSection() {
 
           {/* Image side – full width on mobile, slides from left */}
           <ScrollAnimator variant="fade-right" duration={800}>
-            <div className="relative ml--5 h-[180px] sm:h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl group hover-lift">
+            <div className="relative  h-[450px] sm:h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl group hover-lift">
               <div className="absolute inset-0 bg-primary/10 mix-blend-multiply lg:group-hover:bg-transparent transition-all duration-500 z-10" />
               <Image
                 src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=2000"

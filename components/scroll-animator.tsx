@@ -50,12 +50,12 @@ const variantStyles: Record<AnimationVariant, { initial: string; animated: strin
     animated: 'opacity-100 scale-100',
   },
   'flip-x': {
-    initial: 'opacity-0 [rotateX(90deg)]',
-    animated: 'opacity-100 [rotateX(0deg)]',
+    initial: 'opacity-0 rotate-x-90',
+    animated: 'opacity-100 rotate-x-0',
   },
   'flip-y': {
-    initial: 'opacity-0 [rotateY(90deg)]',
-    animated: 'opacity-100 [rotateY(0deg)]',
+    initial: 'opacity-0 rotate-y-90',
+    animated: 'opacity-100 rotate-y-0',
   },
   'slide-up': {
     initial: 'opacity-0 translate-y-16',
@@ -89,7 +89,7 @@ export function ScrollAnimator({
           setIsVisible(false);
         }
       },
-      { threshold, rootMargin: '0px 0px -40px 0px' }
+      { threshold, rootMargin: '0px' } // Removed negative rootMargin
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -103,11 +103,14 @@ export function ScrollAnimator({
   return (
     <div
       ref={ref}
-      className={`transition-all ${styles.initial} ${isVisible ? styles.animated : ''} ${className}`}
+      className={`transition-all duration-${duration} ${className} ${
+        isVisible ? styles.animated : styles.initial
+      }`}
       style={{
-        transitionDuration: `${duration}ms`,
         transitionDelay: isVisible ? `${delay}ms` : '0ms',
         transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        transitionDuration: `${duration}ms`,
+        willChange: 'transform, opacity', // Optimize performance
       }}
     >
       {children}
