@@ -8,11 +8,6 @@ export function FinalCtaSection() {
     <section className="w-full relative py-20 sm:py-32 overflow-hidden bg-white mt-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
 
-        <ScrollAnimator variant="fade-down" delay={100} duration={600}>
-          <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold text-sm shadow-sm border border-primary/20 animate-glow mb-8">
-            SECTION 8
-          </div>
-        </ScrollAnimator>
 
         {/* Main CTA card */}
         <ScrollAnimator variant="zoom-in" duration={800}>
