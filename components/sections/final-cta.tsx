@@ -12,11 +12,11 @@ export function FinalCtaSection() {
         {/* Main CTA card */}
         <ScrollAnimator variant="zoom-in" duration={800}>
           <div className="mb-16">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 text-slate-900 tracking-tight uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 tracking-tight uppercase">
               ARE YOU READY TO ELEVATE YOUR CAREER?
             </h2>
 
-            <p className="text-lg sm:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
+            <p className="text-base sm:text-lg lg:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
               Don't miss this chance to shape the future of Rwanda's global professionals. Apply today!
             </p>
 
@@ -38,7 +38,7 @@ export function FinalCtaSection() {
 
             {/* Social Share */}
             <div className="space-y-6 text-center md:text-left">
-              <p className="text-lg text-slate-800 font-semibold leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-800 font-semibold leading-relaxed">
                 Know someone who would be a perfect fit? Share this page.
               </p>
               <SocialShare className="justify-center md:justify-start flex-wrap gap-4" />
@@ -46,7 +46,7 @@ export function FinalCtaSection() {
 
             {/* Subscription Form */}
             <div className="space-y-6 text-center md:text-left">
-              <p className="text-lg text-slate-800 font-semibold leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-800 font-semibold leading-relaxed">
                 Or join our mailing list for future openings:
               </p>
               <SubscriptionForm />

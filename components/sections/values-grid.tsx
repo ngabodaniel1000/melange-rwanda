@@ -39,14 +39,14 @@ export function ValuesGridSection() {
       id="values"
       className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden"
     >
-      <div className="absolute top-0 right-0 w-full h-96 bg-gradient-to-b from-slate-100 to-transparent z-0" />
+      <div className="absolute top-0 right-0 w-full h-96 bg-linear-to-b from-slate-100 to-transparent z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Header row */}
         <div className="text-center mb-16">
           <ScrollAnimator variant="fade-down" duration={700}>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase">
               Why Join Our Founding Team?
             </h2>
           </ScrollAnimator>
@@ -67,14 +67,14 @@ export function ValuesGridSection() {
                 <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-md hover:shadow-xl hover-lift hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden h-full flex flex-col">
                   {/* Decorative subtle blob */}
                   <div className={`absolute -right-4 -top-4 w-32 h-32 rounded-full blur-3xl transition-colors ${c.blob}`} />
-                  <div className="relative z-10 flex-grow">
+                  <div className="relative z-10 grow">
                     <div className={`mb-6 inline-flex p-4 rounded-2xl group-hover:scale-110 group-hover:text-white transition-all duration-300 ${c.bg} ${c.text} ${c.hoverBg}`}>
                       {value.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-slate-900 leading-tight">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-3 text-slate-900 leading-tight">
                       {value.title}
                     </h3>
-                    <p className="text-slate-600 text-[15px] leading-relaxed font-medium">
+                    <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
                       {value.description}
                     </p>
                   </div>

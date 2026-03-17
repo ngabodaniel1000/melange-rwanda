@@ -36,14 +36,14 @@ export default async function CurrentOpeningsSection() {
           <div className="absolute inset-0 bg-primary/60 mix-blend-multiply" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <ScrollAnimator variant="fade-down" duration={700} delay={200}>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-white drop-shadow-md">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-white drop-shadow-md uppercase tracking-tight">
                 Current Openings
               </h2>
             </ScrollAnimator>
             <ScrollAnimator variant="fade-up" duration={600} delay={350}>
-              <p className="text-lg text-slate-100 max-w-2xl font-medium drop-shadow-md">
-            We're assembling an exceptional team of freelancers for exciting projects. Click below for
-the full job details.
+              <p className="text-base sm:text-lg lg:text-xl text-slate-100 max-w-2xl font-medium drop-shadow-md">
+                We're assembling an exceptional team of freelancers for exciting projects. Click below for
+                the full job details.
               </p>
             </ScrollAnimator>
           </div>
@@ -78,9 +78,9 @@ the full job details.
         {/* CTA – slides up */}
         <ScrollAnimator variant="fade-up" duration={700} delay={200}>
           <div className="text-center mt-8 sm:mt-12 bg-secondary/5 p-6 sm:p-8 rounded-3xl border border-secondary/20 hover-lift">
-            <p className="text-slate-700 font-medium mb-4">
+            <p className="text-base sm:text-lg text-slate-700 font-medium mb-4">
               If you have exceptional skills in writing, research, design, or operations that don't fit these exact
-descriptions, we still want to hear from you
+              descriptions, we still want to hear from you
             </p>
             <Button
               asChild

@@ -39,11 +39,11 @@ export function FounderStorySection() {
           <ScrollAnimator variant="fade-left" duration={800} delay={150}>
             <div className="space-y-8">
 
-              <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
                 Bridging Two Worlds
               </h2>
 
-              <div className="space-y-6 text-lg sm:text-xl text-slate-600 leading-relaxed font-medium">
+              <div className="space-y-6 text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed font-medium">
                 <ScrollAnimator variant="fade-up" delay={200} duration={600}>
                   <p>
                     As the founder, I split my time between Canada and Rwanda to harness the immense potential of Rwandan talent. My background in HR Management and Culinary Arts, combined with deep experience in the Canadian funding ecosystem, drives our mission at Mélange Rwanda.
@@ -60,7 +60,7 @@ export function FounderStorySection() {
               <ScrollAnimator variant="zoom-in" delay={450} duration={700}>
                 <div className="mt-8 p-8 bg-slate-50 rounded-3xl border border-slate-200 shadow-md hover-lift">
                   <p className="text-sm text-primary font-bold mb-3 tracking-widest uppercase">Sustainable Scaling</p>
-                  <p className="text-slate-800 font-semibold text-xl leading-snug">
+                  <p className="text-slate-800 font-semibold text-lg sm:text-xl leading-snug">
                     Growth is funded by revenue. We build a business that lasts—together.
                   </p>
                 </div>
