@@ -2,58 +2,53 @@
 
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 
 export function HeroSection() {
   return (
     <section id="home" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-      >
-        <source src="/bridge2rwanda.mp4" type="video/mp4" />
-      </video>
+      {/* Background Image */}
+      <div className="absolute top-0 left-0 w-full h-full z-0">
+        <Image
+          src="/1.jpg"
+          alt="Hero Background"
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Dark overlay to make text readable */}
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
 
-      {/* Animated gradient overlay – subtle flag tint */}
-      <div className="absolute inset-0 z-0 bg-linear-to-b from-primary/30 via-black/20 to-accent/20 animate-gradient-text" />
+      <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 w-full max-w-5xl mx-auto pt-20">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight animate-slide-up stagger-1 drop-shadow-xl uppercase">
+          Join Rwanda's Elite: We're Hiring!
+        </h1>
 
-      {/* Top Banner – reduced height for mobile */}
-      <div
-        className="absolute top-[78px] sm:top-[90px] left-1/2 -translate-x-1/2 w-[92%] sm:w-[calc(100%-2rem)] max-w-screen-lg bg-primary/95 text-white z-20 py-3 sm:py-4 px-4 sm:px-6 lg:px-8 flex flex-col xl:flex-row items-center justify-center gap-2 sm:gap-4 xl:gap-8 shadow-2xl border border-white/10 rounded-xl sm:rounded-2xl backdrop-blur-md animate-fade-in"
-        style={{ animationDelay: '200ms' }}
-      >
-        <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center sm:text-left">
-          <span className="animate-slide-up stagger-1 text-sm sm:text-lg lg:text-3xl font-light tracking-wide">
-            2026 Join Rwanda&rsquo;s Elite
-          </span>
-          <span className="relative inline-block font-semibold z-10 text-secondary animate-slide-up stagger-2 text-sm sm:text-lg lg:text-3xl">
-            Now Open! 🇷🇼
-          </span>
-        </div>
+        <p className="mt-6 text-base sm:text-xl md:text-2xl text-slate-100 max-w-3xl mx-auto animate-slide-up stagger-2 drop-shadow-lg font-medium leading-relaxed">
+          Become a founding freelance partner and provide world-class services to North American clients. Multiple positions available!
+        </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-2 xl:gap-8 mt-1 xl:mt-0 animate-slide-up stagger-3">
+        <div className="mt-10 animate-slide-up stagger-3">
           <Button
-            className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-4 sm:px-8 py-2 sm:py-6 text-xs sm:text-base tracking-wider rounded-full border-none transition-all shadow-lg hover:scale-105 sm:hover:scale-110 hover:shadow-secondary/30 hover:shadow-xl"
+            className="bg-primary hover:bg-primary/90 text-secondary-foreground font-bold px-8 sm:px-10 py-6 sm:py-7 text-sm sm:text-base tracking-wider rounded-full border-none transition-all shadow-xl hover:scale-105 hover:shadow-secondary/40 hover:shadow-2xl"
             onClick={() => {
               const element = document.getElementById('current-openings');
               element?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            CLICK HERE TO APPLY
+            VIEW OPEN POSITIONS
           </Button>
         </div>
       </div>
 
       {/* Floating scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2">
-        <span className="text-white/60 text-xs tracking-widest uppercase animate-fade-in" style={{ animationDelay: '1200ms' }}>
+        <span className="text-white/80 text-xs tracking-widest uppercase animate-fade-in" style={{ animationDelay: '1200ms' }}>
           Scroll
         </span>
         <div className="animate-bounce">
-          <ChevronDown className="text-white/80 w-8 h-8" />
+          <ChevronDown className="text-white w-8 h-8 drop-shadow-md" />
         </div>
       </div>
     </section>

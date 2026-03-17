@@ -1,6 +1,14 @@
 import { ScrollAnimator } from '@/components/scroll-animator';
-import { Users, TrendingUp, Target, Network, BookOpen, Award, Lightbulb, Heart } from 'lucide-react';
-import Image from 'next/image';
+import {
+  Calendar,
+  TrendingUp,
+  Handshake,
+  Gem,
+  BookOpen,
+  ShieldCheck,
+  Unplug,
+  Leaf
+} from 'lucide-react';
 
 interface ValueCard {
   icon: React.ReactNode;
@@ -9,14 +17,14 @@ interface ValueCard {
 }
 
 const values: ValueCard[] = [
-  { icon: <Users className="w-8 h-8" />, title: 'Community First', description: 'We believe in the power of community and collective growth. Our network is our greatest asset.' },
-  { icon: <TrendingUp className="w-8 h-8" />, title: 'Continuous Growth', description: 'Every member is committed to lifelong learning and professional development.' },
-  { icon: <Target className="w-8 h-8" />, title: 'Purpose-Driven', description: 'We focus on making meaningful contributions to Rwanda and the wider African continent.' },
-  { icon: <Network className="w-8 h-8" />, title: 'Strong Networks', description: 'Access to an extensive network of professionals, mentors, and industry leaders.' },
-  { icon: <BookOpen className="w-8 h-8" />, title: 'Quality Education', description: 'We provide access to world-class training and educational resources.' },
-  { icon: <Award className="w-8 h-8" />, title: 'Excellence', description: 'We set high standards and celebrate exceptional achievements among our members.' },
-  { icon: <Lightbulb className="w-8 h-8" />, title: 'Innovation', description: 'We encourage creative thinking and innovative solutions to real-world challenges.' },
-  { icon: <Heart className="w-8 h-8" />, title: 'Empathy', description: 'We understand the challenges young professionals face and support one another.' },
+  { icon: <Calendar className="w-8 h-8" />, title: 'Long-Term Benefits', description: 'We are building for the long haul. You grow with us from initial projects to ongoing client work.' },
+  { icon: <TrendingUp className="w-8 h-8" />, title: 'Growth Opportunities', description: 'As we win clients, your role, project volume, and earnings grow too.' },
+  { icon: <Handshake className="w-8 h-8" />, title: 'Fair, Project-Based Pay', description: 'You are compensated for each project. When we succeed, you succeed.' },
+  { icon: <Gem className="w-8 h-8" />, title: 'Selective Network', description: 'We are building a small, elite team. You\'ll work alongside top performers.' },
+  { icon: <BookOpen className="w-8 h-8" />, title: 'Training & Development', description: 'Structured training to meet global standards and advance your skills.' },
+  { icon: <ShieldCheck className="w-8 h-8" />, title: 'Quality Without Compromise', description: 'Every deliverable meets North American professional standards.' },
+  { icon: <Unplug className="w-8 h-8" />, title: 'Cultural Bridge', description: 'Our founder splits time between Canada and Rwanda. You\'re part of one team.' },
+  { icon: <Leaf className="w-8 h-8" />, title: 'Sustainable Impact', description: 'Building long-term wealth and capabilities for Rwandans through direct global participation.' },
 ];
 
 const colorSets = [
@@ -29,48 +37,24 @@ export function ValuesGridSection() {
   return (
     <section
       id="values"
-      className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-accent/5 relative overflow-hidden"
+      className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden"
     >
-      <div className="absolute top-0 left-0 w-2 h-full bg-accent" />
-      <div className="absolute top-0 right-0 w-full h-96 bg-gradient-to-b from-secondary/10 to-transparent z-0" />
+      <div className="absolute top-0 right-0 w-full h-96 bg-gradient-to-b from-slate-100 to-transparent z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Header row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <ScrollAnimator variant="fade-right" duration={800}>
-            <div>
-              <div className="inline-block px-4 py-2 bg-white text-primary rounded-full font-semibold text-sm mb-6 shadow-sm border border-primary/20 animate-glow">
-                Our Values
-              </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 text-slate-900 tracking-tight">
-                Why{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-gradient-text">
-                  Join Us
-                </span>
-              </h2>
-              <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-6">
-                Become part of a community dedicated to excellence, growth, and positive impact.
-                Here is what we stand for and what you can expect feeling every day.
-              </p>
-            </div>
-          </ScrollAnimator>
-
-          <ScrollAnimator variant="fade-left" duration={800} delay={150}>
-            <div className="relative h-64 lg:h-80 w-full rounded-3xl overflow-hidden shadow-xl hover-lift">
-              <Image
-                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=2000"
-                alt="Community values"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-            </div>
+        <div className="text-center mb-16">
+          <ScrollAnimator variant="fade-down" duration={700}>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
+              Why Join Our Founding Team?
+            </h2>
           </ScrollAnimator>
         </div>
 
         {/* Cards grid – each card staggered */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Desktop: 4x2 Grid, Mobile: 1 column (Stacked vertically) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((value, index) => {
             const c = colorSets[index % 3];
             return (
@@ -80,14 +64,19 @@ export function ValuesGridSection() {
                 delay={index * 80}
                 duration={600}
               >
-                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover-lift hover:border-primary/20 transition-all duration-300 group relative overflow-hidden h-full">
-                  <div className={`absolute -right-4 -top-4 w-24 h-24 rounded-full blur-2xl transition-colors ${c.blob}`} />
-                  <div className="relative z-10">
-                    <div className={`mb-6 inline-flex p-3 rounded-2xl group-hover:scale-110 group-hover:text-white transition-all duration-300 ${c.bg} ${c.text} ${c.hoverBg}`}>
+                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-md hover:shadow-xl hover-lift hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden h-full flex flex-col">
+                  {/* Decorative subtle blob */}
+                  <div className={`absolute -right-4 -top-4 w-32 h-32 rounded-full blur-3xl transition-colors ${c.blob}`} />
+                  <div className="relative z-10 flex-grow">
+                    <div className={`mb-6 inline-flex p-4 rounded-2xl group-hover:scale-110 group-hover:text-white transition-all duration-300 ${c.bg} ${c.text} ${c.hoverBg}`}>
                       {value.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-slate-900">{value.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{value.description}</p>
+                    <h3 className="text-xl font-bold mb-3 text-slate-900 leading-tight">
+                      {value.title}
+                    </h3>
+                    <p className="text-slate-600 text-[15px] leading-relaxed font-medium">
+                      {value.description}
+                    </p>
                   </div>
                 </div>
               </ScrollAnimator>

@@ -20,7 +20,7 @@ export default function Home() {
       <ValuesGridSection />
       <FounderStorySection />
       <HowItWorksSection />
-      {/* <FinalCtaSection /> */}
+      <FinalCtaSection />
       <Footer />
     </main>
   );

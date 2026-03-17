@@ -42,7 +42,8 @@ export default async function CurrentOpeningsSection() {
             </ScrollAnimator>
             <ScrollAnimator variant="fade-up" duration={600} delay={350}>
               <p className="text-lg text-slate-100 max-w-2xl font-medium drop-shadow-md">
-                Join our growing team and make an impact in Rwanda&rsquo;s education and empowerment sector.
+            We're assembling an exceptional team of freelancers for exciting projects. Click below for
+the full job details.
               </p>
             </ScrollAnimator>
           </div>
@@ -78,7 +79,8 @@ export default async function CurrentOpeningsSection() {
         <ScrollAnimator variant="fade-up" duration={700} delay={200}>
           <div className="text-center mt-8 sm:mt-12 bg-secondary/5 p-6 sm:p-8 rounded-3xl border border-secondary/20 hover-lift">
             <p className="text-slate-700 font-medium mb-4">
-              Don&rsquo;t see a position that matches your skills?
+              If you have exceptional skills in writing, research, design, or operations that don't fit these exact
+descriptions, we still want to hear from you
             </p>
             <Button
               asChild

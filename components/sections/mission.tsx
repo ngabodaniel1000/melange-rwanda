@@ -19,7 +19,7 @@ export function MissionSection() {
             <div className="relative  h-[450px] sm:h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl group hover-lift">
               <div className="absolute inset-0 bg-primary/10 mix-blend-multiply lg:group-hover:bg-transparent transition-all duration-500 z-10" />
               <Image
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=2000"
+                src="/5.png"
                 alt="Our mission - team collaboration"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -41,10 +41,7 @@ export function MissionSection() {
                 </span>
               </h2>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                At Mélange Rwanda, we believe that every young person deserves access to quality education
-                and opportunities for growth. We are dedicated to bridging the gap between education and
-                employment, empowering Rwanda&rsquo;s youth to become leaders in their communities and
-                innovators in their fields.
+               Our mission is to create sustainable, impactful opportunities for exceptional Rwandan talent, delivering world-class value to our North American clients. We believe lasting impact is achieved through meaningful work, integrating local expertise with global opportunities.
               </p>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed border-l-4 border-accent pl-4 sm:pl-6 italic bg-white/50 p-4 sm:p-5 rounded-r-xl shadow-sm">
                 Through strategic partnerships, mentorship, and comprehensive skill-building programs, we

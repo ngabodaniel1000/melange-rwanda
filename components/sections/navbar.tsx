@@ -56,10 +56,10 @@ export function Navbar() {
                         <a
                             href="#home"
                             onClick={(e) => scrollToSection(e, '#home')}
-                            className={`font-bold font-montserrat text-primary tracking-wide transition-all duration-300 ${scrolled ? 'text-xl' : 'text-2xl lg:text-3xl'
+                            className={`font-bold font-montserrat text-primary tracking-wide transition-all duration-300 ${scrolled ? 'text-md' : 'text-xl lg:text-2xl'
                                 }`}
                         >
-                            Mélange
+                            Mélange Rwanda
                         </a>
                     </div>
 
