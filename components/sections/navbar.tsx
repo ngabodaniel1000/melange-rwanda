@@ -111,10 +111,10 @@ export function Navbar() {
 
             {/* Mobile menu – slides down */}
             <div
-                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
                     }`}
             >
-                <div className="absolute top-full left-0 right-0 bg-background/98 backdrop-blur-md border-b border-primary/10 shadow-xl">
+                <div className="absolute top-full left-0 right-0 bg-background/98 backdrop-blur-md border-b border-primary/10 shadow-xl z-50">
                     <div className="px-4 pt-2 pb-6 space-y-1">
                         {NAV_LINKS.map((link, i) => (
                             <a

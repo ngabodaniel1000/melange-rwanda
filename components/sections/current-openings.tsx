@@ -58,19 +58,7 @@ export default async function CurrentOpeningsSection() {
             {error ? (
               <p className="text-red-500 text-center py-8">{error}</p>
             ) : (
-              <>
-                {/* Mobile scroll hint - optional */}
-                <div className="text-xs text-muted-foreground text-right mb-2 sm:hidden">
-                  ← Swipe to scroll →
-                </div>
-
-                {/* Scrollable table container */}
-                <div className="w-full overflow-x-auto overflow-y-hidden touch-pan-x overscroll-x-contain pb-2">
-                  <div className="min-w-[800px]">
-                    <JobTable jobs={jobs} />
-                  </div>
-                </div>
-              </>
+              <JobTable jobs={jobs} />
             )}
           </div>
         </ScrollAnimator>
