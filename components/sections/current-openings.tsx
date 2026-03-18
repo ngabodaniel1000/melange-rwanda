@@ -75,7 +75,7 @@ export default async function CurrentOpeningsSection() {
               className="bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-md px-6 sm:px-8 py-4 sm:py-6 hover:scale-105 hover:shadow-primary/30 hover:shadow-xl text-sm sm:text-base"
               size="lg"
             >
-              <a href="https://forms.google.com/general-application" target="_blank" rel="noopener noreferrer">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfTDRaGSY7RI5GHtpD1mVS3J7mnxyt7fkmZx_9yW6p8YFU7fg/viewform" target="_blank" rel="noopener noreferrer">
                 Submit General Application
               </a>
             </Button>

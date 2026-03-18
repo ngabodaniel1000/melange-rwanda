@@ -137,8 +137,8 @@ export function SubscriptionForm({
               : ''
           }`}
         >
-          {status === 'success' && <CheckCircle className="w-4 h-4 flex-shrink-0" />}
-          {status === 'error' && <AlertCircle className="w-4 h-4 flex-shrink-0" />}
+          {status === 'success' && <CheckCircle className="w-4 h-4 shrink-0" />}
+          {status === 'error' && <AlertCircle className="w-4 h-4 shrink-0" />}
           <span>{message}</span>
         </div>
       )}
