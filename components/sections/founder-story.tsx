@@ -26,7 +26,7 @@ export function FounderStorySection() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end">
+                <div className="absolute inset-x-0 bottom-0 p-6 bg-linear-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end">
                   <p className="text-white font-semibold text-lg tracking-wide drop-shadow-md">
                     Eloi XXXXX, Founder
                   </p>

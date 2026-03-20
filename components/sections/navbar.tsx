@@ -53,7 +53,7 @@ export function Navbar() {
                 <div className="flex items-center justify-between">
 
                     {/* Logo */}
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                         <ScrollAnimator variant="fade" duration={600} threshold={0} once={true}>
                             <a
                                 href="#home"
