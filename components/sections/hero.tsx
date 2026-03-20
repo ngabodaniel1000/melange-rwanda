@@ -3,22 +3,23 @@
 import { ScrollAnimator } from '@/components/scroll-animator';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-import Image from 'next/image';
 
 export function HeroSection() {
   return (
     <section id="home" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
-        <Image
-          src="/1.jpg"
-          alt="Hero Background"
-          fill
-          priority
-          className="object-cover"
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="object-cover w-full h-full"
+        >
+          <source src="/bridge2rwanda.mp4" type="video/mp4" />
+        </video>
         {/* Dark overlay to make text readable */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 w-full max-w-5xl mx-auto pt-20">
