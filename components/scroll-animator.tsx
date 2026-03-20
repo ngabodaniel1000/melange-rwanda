@@ -12,6 +12,7 @@ type AnimationVariant =
   | 'flip-x'
   | 'flip-y'
   | 'slide-up'
+  | 'fade'
   | 'none';
 
 interface ScrollAnimatorProps {
@@ -26,19 +27,19 @@ interface ScrollAnimatorProps {
 
 const variantStyles: Record<AnimationVariant, { initial: string; animated: string }> = {
   'fade-up': {
-    initial: 'opacity-0 translate-y-12',
+    initial: 'opacity-0 translate-y-8',
     animated: 'opacity-100 translate-y-0',
   },
   'fade-down': {
-    initial: 'opacity-0 -translate-y-12',
+    initial: 'opacity-0 -translate-y-8',
     animated: 'opacity-100 translate-y-0',
   },
   'fade-left': {
-    initial: 'opacity-0 -translate-x-12',
+    initial: 'opacity-0 -translate-x-8',
     animated: 'opacity-100 translate-x-0',
   },
   'fade-right': {
-    initial: 'opacity-0 translate-x-12',
+    initial: 'opacity-0 translate-x-8',
     animated: 'opacity-100 translate-x-0',
   },
   'zoom-in': {
@@ -60,6 +61,10 @@ const variantStyles: Record<AnimationVariant, { initial: string; animated: strin
   'slide-up': {
     initial: 'opacity-0 translate-y-16',
     animated: 'opacity-100 translate-y-0',
+  },
+  fade: {
+    initial: 'opacity-0',
+    animated: 'opacity-100',
   },
   none: {
     initial: '',
@@ -103,9 +108,8 @@ export function ScrollAnimator({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-${duration} ${className} ${
-        isVisible ? styles.animated : styles.initial
-      }`}
+      className={`transition-all duration-${duration} ${className} ${isVisible ? styles.animated : styles.initial
+        }`}
       style={{
         transitionDelay: isVisible ? `${delay}ms` : '0ms',
         transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',

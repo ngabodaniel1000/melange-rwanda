@@ -64,7 +64,7 @@ export function ValuesGridSection() {
                 delay={index * 80}
                 duration={600}
               >
-                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-md hover:shadow-xl hover-lift hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden h-full flex flex-col">
+                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-md hover:shadow-xl hover-lift transition-all duration-300 group relative overflow-hidden h-full flex flex-col">
                   {/* Decorative subtle blob */}
                   <div className={`absolute -right-4 -top-4 w-32 h-32 rounded-full blur-3xl transition-colors ${c.blob}`} />
                   <div className="relative z-10 grow">

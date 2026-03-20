@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { ScrollAnimator } from '@/components/scroll-animator';
 
 const NAV_LINKS = [
     { name: 'Home', href: '#home' },
@@ -53,42 +54,47 @@ export function Navbar() {
 
                     {/* Logo */}
                     <div className="flex-shrink-0">
-                        <a
-                            href="#home"
-                            onClick={(e) => scrollToSection(e, '#home')}
-                            className={`font-bold font-montserrat text-primary tracking-wide transition-all duration-300 ${scrolled ? 'text-md' : 'text-xl lg:text-2xl'
-                                }`}
-                        >
-                            Mélange Rwanda
-                        </a>
+                        <ScrollAnimator variant="fade" duration={600} threshold={0} once={true}>
+                            <a
+                                href="#home"
+                                onClick={(e) => scrollToSection(e, '#home')}
+                                className={`font-bold font-montserrat text-primary tracking-wide transition-all duration-300 ${scrolled ? 'text-md' : 'text-xl lg:text-2xl'
+                                    }`}
+                            >
+                                <span className="text-secondary drop-shadow-sm">M</span>élange <span className="text-accent drop-shadow-sm">R</span>wanda
+                            </a>
+                        </ScrollAnimator>
                     </div>
 
                     {/* Desktop Nav */}
                     <nav className="hidden md:flex items-center gap-6 lg:gap-10">
-                        {NAV_LINKS.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                onClick={(e) => scrollToSection(e, link.href)}
-                                className="relative text-sm font-medium text-foreground/70 hover:text-primary transition-colors group"
-                            >
-                                {link.name}
-                                {/* Animated underline */}
-                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary rounded-full transition-all duration-300 group-hover:w-full" />
-                            </a>
+                        {NAV_LINKS.map((link, i) => (
+                            <ScrollAnimator key={link.name} variant="fade-down" delay={i * 50} duration={500} threshold={0} once={true}>
+                                <a
+                                    href={link.href}
+                                    onClick={(e) => scrollToSection(e, link.href)}
+                                    className="relative text-sm font-medium text-foreground/70 hover:text-primary transition-colors group"
+                                >
+                                    {link.name}
+                                    {/* Animated underline */}
+                                    <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary rounded-full transition-all duration-300 group-hover:w-full" />
+                                </a>
+                            </ScrollAnimator>
                         ))}
                     </nav>
 
                     <div className="hidden md:flex items-center">
-                        <Button
-                            className={`rounded-full font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transition-all hover:scale-105 hover:shadow-primary/30 hover:shadow-xl ${scrolled ? 'px-6 py-4 text-sm' : 'px-8 py-5 text-base'
-                                }`}
-                            onClick={() => {
-                                document.getElementById('current-openings')?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                        >
-                            Apply Now
-                        </Button>
+                        <ScrollAnimator variant="fade" delay={400} duration={600} threshold={0} once={true}>
+                            <Button
+                                className={`rounded-full font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transition-all hover:scale-105 hover:shadow-primary/30 hover:shadow-xl ${scrolled ? 'px-6 py-4 text-sm' : 'px-8 py-5 text-base'
+                                    }`}
+                                onClick={() => {
+                                    document.getElementById('current-openings')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                            >
+                                Apply Now
+                            </Button>
+                        </ScrollAnimator>
                     </div>
 
                     {/* Mobile toggle */}
