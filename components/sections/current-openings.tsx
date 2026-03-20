@@ -20,7 +20,7 @@ export default async function CurrentOpeningsSection() {
   return (
     <section
       id="current-openings"
-      className="w-full bg-primary/5 relative pb-16 sm:pb-24 lg:pb-32 overflow-hidden"
+      className="w-full bg-white relative pb-16 sm:pb-24 lg:pb-32 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
 

@@ -5,7 +5,7 @@ export function MissionSection() {
   return (
     <section
       id="mission"
-      className="w-full py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-secondary/5 relative overflow-hidden"
+      className="w-full py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden"
     >
       {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 rounded-l-full blur-3xl -z-10 transform translate-x-1/2" />

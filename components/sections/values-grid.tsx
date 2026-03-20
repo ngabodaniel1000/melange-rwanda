@@ -37,7 +37,7 @@ export function ValuesGridSection() {
   return (
     <section
       id="values"
-      className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden"
+      className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-secondary/5 relative overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-full h-96 bg-linear-to-b from-slate-100 to-transparent z-0" />
 

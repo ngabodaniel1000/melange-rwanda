@@ -34,7 +34,7 @@ export function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="w-full py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 bg-blue-50 relative overflow-hidden"
+      className="w-full py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 bg-stone-50 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         {/* Title */}
