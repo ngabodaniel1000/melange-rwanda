@@ -1,7 +1,16 @@
 import { ScrollAnimator } from '@/components/scroll-animator';
 import Image from 'next/image';
+import { urlFor } from '@/sanity/lib/image';
 
-export function FounderStorySection() {
+export function FounderStorySection({ data }: { data?: any }) {
+  const title = data?.title || 'Our Founder';
+  const name = data?.name || 'Eloi XXXXX, Founder';
+  const description1 = data?.description1 || 'As the founder, I split my time between Canada and Rwanda to harness the immense potential of Rwandan talent. My background in HR Management and Culinary Arts, combined with deep experience in the Canadian funding ecosystem, drives our mission at Mélange Rwanda.';
+  const description2 = data?.description2 || "When you join this team, you're not working for a distant company. You're partnering with me as we build something lasting together.";
+  const calloutTitle = data?.calloutTitle || 'Sustainable Scaling';
+  const calloutText = data?.calloutText || 'Growth is funded by revenue. We build a business that lasts—together.';
+  const imageUrl = data?.image ? urlFor(data.image).url() : '/founder.jpg';
+
   return (
     <section
       id="story"
@@ -21,14 +30,14 @@ export function FounderStorySection() {
               <div className="absolute inset-0 bg-primary/20 rounded-3xl transform -rotate-3 scale-105 opacity-50 blur-sm transition-transform hover:-rotate-6" />
               <div className="relative h-full w-full rounded-3xl overflow-hidden border border-slate-100 shadow-xl hover-lift">
                 <Image
-                  src="/founder.jpg"
-                  alt="Founder of Mélange Rwanda"
+                  src={imageUrl}
+                  alt={name}
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-x-0 bottom-0 p-6 bg-linear-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end">
                   <p className="text-white font-semibold text-lg tracking-wide drop-shadow-md">
-                    Eloi XXXXX, Founder
+                    {name}
                   </p>
                 </div>
               </div>
@@ -40,28 +49,24 @@ export function FounderStorySection() {
             <div className="space-y-8">
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
-               Our Founder
+                {title}
               </h2>
 
               <div className="space-y-6 text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed font-medium">
                 <ScrollAnimator variant="fade-up" delay={200} duration={600}>
-                  <p>
-                    As the founder, I split my time between Canada and Rwanda to harness the immense potential of Rwandan talent. My background in HR Management and Culinary Arts, combined with deep experience in the Canadian funding ecosystem, drives our mission at Mélange Rwanda.
-                  </p>
+                  <p>{description1}</p>
                 </ScrollAnimator>
 
                 <ScrollAnimator variant="fade-up" delay={320} duration={600}>
-                  <p>
-                    When you join this team, you're not working for a distant company. You're partnering with me as we build something lasting together.
-                  </p>
+                  <p>{description2}</p>
                 </ScrollAnimator>
               </div>
 
               <ScrollAnimator variant="zoom-in" delay={450} duration={700}>
                 <div className="mt-8 p-8 bg-slate-50 rounded-3xl border border-slate-200 shadow-md hover-lift">
-                  <p className="text-sm text-primary font-bold mb-3 tracking-widest uppercase">Sustainable Scaling</p>
+                  <p className="text-sm text-primary font-bold mb-3 tracking-widest uppercase">{calloutTitle}</p>
                   <p className="text-slate-800 font-semibold text-lg sm:text-xl leading-snug">
-                    Growth is funded by revenue. We build a business that lasts—together.
+                    {calloutText}
                   </p>
                 </div>
               </ScrollAnimator>

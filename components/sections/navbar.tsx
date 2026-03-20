@@ -36,7 +36,6 @@ export function Navbar() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
-
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-primary/10 transition-all duration-300 ${scrolled ? 'py-3 shadow-md' : 'py-4 shadow-sm'

@@ -8,18 +8,33 @@ import { HowItWorksSection } from '@/components/sections/how-it-works';
 import { FinalCtaSection } from '@/components/sections/final-cta';
 import { Footer } from '@/components/sections/footer';
 import CurrentOpeningsSection from '@/components/sections/current-openings';
+import { client } from '@/sanity/lib/client';
 
-export default function Home() {
+export default async function Home() {
+  const query = `{
+    "hero": *[_type == "hero"][0] {
+      ...,
+      "videoUrl": videoFile.asset->url
+    },
+    "mission": *[_type == "mission"][0],
+    "about": *[_type == "about"][0],
+    "story": *[_type == "story"][0],
+    "process": *[_type == "process"][0],
+    "jobs": *[_type == "job"]
+  }`;
+
+  const data = await client.fetch(query);
+
   return (
     <main className="w-full overflow-x-hidden">
       <Navbar />
-      <HeroSection />
-      <MissionSection />
-      <MelangeDescriptionSection />
-      <CurrentOpeningsSection />
+      <HeroSection data={data.hero} />
+      <MissionSection data={data.mission} />
+      <MelangeDescriptionSection data={data.about} />
+      <CurrentOpeningsSection initialJobs={data.jobs} />
       <ValuesGridSection />
-      <FounderStorySection />
-      <HowItWorksSection />
+      <FounderStorySection data={data.story} />
+      <HowItWorksSection data={data.process} />
       <FinalCtaSection />
       <Footer />
     </main>

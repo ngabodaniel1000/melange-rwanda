@@ -1,7 +1,15 @@
 import { ScrollAnimator } from '@/components/scroll-animator';
 import Image from 'next/image';
+import { urlFor } from '@/sanity/lib/image';
 
-export function MelangeDescriptionSection() {
+export function MelangeDescriptionSection({ data }: { data?: any }) {
+  const title = data?.title || 'What is Mélange?';
+  const card1Title = data?.card1Title || 'A Mélange, Not a Marketplace';
+  const card1Description = data?.card1Description || "We're not a typical bidding platform; Mélange Rwanda is a curated freelance team that brings Rwandan professionals together with North American standards to create something new.";
+  const card2Title = data?.card2Title || 'Why "Mélange"?';
+  const card2Description = data?.card2Description || "'Mélange' means a harmonious mixture of diverse elements—Rwandan talent meets global opportunities and local excellence drives our success.";
+  const imageUrl = data?.image ? urlFor(data.image).url() : '/2.jpg';
+
   return (
     <section
       id="about"
@@ -16,7 +24,7 @@ export function MelangeDescriptionSection() {
         <div className="text-center mb-16 sm:mb-20">
           <ScrollAnimator variant="fade-down" duration={700}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase">
-              What is Mélange?
+              {title}
             </h2>
           </ScrollAnimator>
         </div>
@@ -28,8 +36,8 @@ export function MelangeDescriptionSection() {
             <ScrollAnimator variant="fade-right" duration={800}>
               <div className="relative h-[400px] lg:h-[550px] w-full rounded-2xl overflow-hidden shadow-2xl hover-lift border-slate-100 border">
                 <Image
-                  src="/2.jpg"
-                  alt="Team collaboration in Kigali"
+                  src={imageUrl}
+                  alt={title}
                   fill
                   className="object-cover"
                 />
@@ -45,14 +53,18 @@ export function MelangeDescriptionSection() {
               <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-100 hover-lift relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full transform translate-x-8 -translate-y-8 group-hover:scale-110 transition-transform duration-500" />
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-5">
-                  A{' '}
-                  <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent">
-                    Mélange
-                  </span>
-                  , Not a Marketplace
+                  {card1Title.includes('Mélange') ? (
+                    <>
+                      A{' '}
+                      <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent">
+                        Mélange
+                      </span>
+                      , Not a Marketplace
+                    </>
+                  ) : card1Title}
                 </h3>
                 <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-medium">
-                  We're not a typical bidding platform; Mélange Rwanda is a curated freelance team that brings Rwandan professionals together with North American standards to create something new.
+                  {card1Description}
                 </p>
               </div>
             </ScrollAnimator>
@@ -62,10 +74,10 @@ export function MelangeDescriptionSection() {
               <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-100 hover-lift relative overflow-hidden group">
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/5 rounded-tr-full transform -translate-x-8 translate-y-8 group-hover:scale-110 transition-transform duration-500" />
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-5">
-                  Why "Mélange"?
+                  {card2Title}
                 </h3>
                 <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-medium">
-                  'Mélange' means a harmonious mixture of diverse elements—Rwandan talent meets global opportunities and local excellence drives our success.
+                  {card2Description}
                 </p>
               </div>
             </ScrollAnimator>

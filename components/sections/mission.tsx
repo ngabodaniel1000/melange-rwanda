@@ -1,7 +1,12 @@
 import { ScrollAnimator } from '@/components/scroll-animator';
 import Image from 'next/image';
+import { urlFor } from '@/sanity/lib/image';
 
-export function MissionSection() {
+export function MissionSection({ data }: { data?: any }) {
+  const title = data?.title || 'Our mission';
+  const description = data?.description || 'Our mission is to create sustainable, impactful opportunities for exceptional Rwandan talent, delivering world-class value to our North American clients. We believe lasting impact is achieved through meaningful work, integrating local expertise with global opportunities.';
+  const imageUrl = data?.image ? urlFor(data.image).url() : '/5.png';
+
   return (
     <section
       id="mission"
@@ -19,8 +24,8 @@ export function MissionSection() {
             <div className="relative  h-[450px] sm:h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl group hover-lift">
               <div className="absolute inset-0 bg-primary/10 mix-blend-multiply lg:group-hover:bg-transparent transition-all duration-500 z-10" />
               <Image
-                src="/5.png"
-                alt="Our mission - team collaboration"
+                src={imageUrl}
+                alt={title}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -32,10 +37,10 @@ export function MissionSection() {
           <ScrollAnimator variant="fade-left" duration={800} delay={150}>
             <div className="px-4 sm:px-6 lg:px-0 lg:pr-8 py-8 lg:py-0 space-y-5 md:space-y-6">
               <h2 className="text-3xl text-center sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
-                Our mission
+                {title}
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed">
-                Our mission is to create sustainable, impactful opportunities for exceptional Rwandan talent, delivering world-class value to our North American clients. We believe lasting impact is achieved through meaningful work, integrating local expertise with global opportunities.
+              <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed font-medium">
+                {description}
               </p>
             </div>
           </ScrollAnimator>

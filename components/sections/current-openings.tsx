@@ -5,16 +5,18 @@ import { Button } from '@/components/ui/button';
 import { client } from '@/sanity/lib/client';
 import Image from 'next/image';
 
-export default async function CurrentOpeningsSection() {
-  let jobs: Job[] = [];
+export default async function CurrentOpeningsSection({ initialJobs }: { initialJobs?: Job[] }) {
+  let jobs: Job[] = initialJobs || [];
   let error: string | null = null;
 
-  try {
-    const query = `*[_type == "job"]{ title, department, location, type, link }`;
-    jobs = await client.fetch(query);
-  } catch (err) {
-    console.error('Error fetching jobs:', err);
-    error = 'Failed to load jobs';
+  if (!initialJobs) {
+    try {
+      const query = `*[_type == "job"]{ title, department, location, type, link }`;
+      jobs = await client.fetch(query);
+    } catch (err) {
+      console.error('Error fetching jobs:', err);
+      error = 'Failed to load jobs';
+    }
   }
 
   return (

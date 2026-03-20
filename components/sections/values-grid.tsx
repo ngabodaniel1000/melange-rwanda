@@ -6,17 +6,30 @@ import {
   Gem,
   BookOpen,
   ShieldCheck,
+  StepForward,
   Unplug,
-  Leaf
+  Leaf,
+  LucideIcon
 } from 'lucide-react';
 
 interface ValueCard {
-  icon: React.ReactNode;
+  icon?: string | React.ReactNode;
   title: string;
   description: string;
 }
 
-const values: ValueCard[] = [
+const iconMap: Record<string, LucideIcon> = {
+  Calendar,
+  TrendingUp,
+  Handshake,
+  Gem,
+  BookOpen,
+  ShieldCheck,
+  Unplug,
+  Leaf
+};
+
+const defaultValues: ValueCard[] = [
   { icon: <Calendar className="w-8 h-8" />, title: 'Long-Term Benefits', description: 'We are building for the long haul. You grow with us from initial projects to ongoing client work.' },
   { icon: <TrendingUp className="w-8 h-8" />, title: 'Growth Opportunities', description: 'As we win clients, your role, project volume, and earnings grow too.' },
   { icon: <Handshake className="w-8 h-8" />, title: 'Fair, Project-Based Pay', description: 'You are compensated for each project. When we succeed, you succeed.' },
@@ -34,6 +47,9 @@ const colorSets = [
 ];
 
 export function ValuesGridSection() {
+  const title = 'Why Join Our Founding Team?';
+  const values = defaultValues;
+
   return (
     <section
       id="values"
@@ -47,16 +63,17 @@ export function ValuesGridSection() {
         <div className="text-center mb-16">
           <ScrollAnimator variant="fade-down" duration={700}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase">
-              Why Join Our Founding Team?
+              {title}
             </h2>
           </ScrollAnimator>
         </div>
 
         {/* Cards grid – each card staggered */}
-        {/* Desktop: 4x2 Grid, Mobile: 1 column (Stacked vertically) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((value, index) => {
+          {values.map((value: any, index: number) => {
             const c = colorSets[index % 3];
+            const IconComponent = typeof value.icon === 'string' ? iconMap[value.icon] : null;
+
             return (
               <ScrollAnimator
                 key={index}
@@ -69,7 +86,7 @@ export function ValuesGridSection() {
                   <div className={`absolute -right-4 -top-4 w-32 h-32 rounded-full blur-3xl transition-colors ${c.blob}`} />
                   <div className="relative z-10 grow">
                     <div className={`mb-6 inline-flex p-4 rounded-2xl group-hover:scale-110 group-hover:text-white transition-all duration-300 ${c.bg} ${c.text} ${c.hoverBg}`}>
-                      {value.icon}
+                      {IconComponent ? <IconComponent className="w-8 h-8" /> : (value.icon || <Gem className="w-8 h-8" />)}
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold mb-3 text-slate-900 leading-tight">
                       {value.title}
