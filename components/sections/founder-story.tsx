@@ -40,7 +40,7 @@ export function FounderStorySection() {
             <div className="space-y-8">
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
-                Bridging Two Worlds
+               Our Founder
               </h2>
 
               <div className="space-y-6 text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed font-medium">

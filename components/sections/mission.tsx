@@ -31,21 +31,11 @@ export function MissionSection() {
           {/* Text side – with padding on mobile */}
           <ScrollAnimator variant="fade-left" duration={800} delay={150}>
             <div className="px-4 sm:px-6 lg:px-0 lg:pr-8 py-8 lg:py-0 space-y-5 md:space-y-6">
-              <div className="inline-block px-4 py-2 bg-secondary/10 text-secondary-foreground rounded-full font-semibold text-xs sm:text-sm shadow-sm border border-secondary/20 animate-glow">
-                Our Purpose
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
-                Bridging the Gap to{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-gradient-text">
-                  Greatness
-                </span>
+              <h2 className="text-3xl text-center sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
+                Our mission
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed">
                 Our mission is to create sustainable, impactful opportunities for exceptional Rwandan talent, delivering world-class value to our North American clients. We believe lasting impact is achieved through meaningful work, integrating local expertise with global opportunities.
-              </p>
-              <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed border-l-4 border-accent pl-4 sm:pl-6 italic bg-white/50 p-4 sm:p-5 rounded-r-xl shadow-sm">
-                Through strategic partnerships, mentorship, and comprehensive skill-building programs, we
-                create pathways for youth to thrive in a rapidly changing world.
               </p>
             </div>
           </ScrollAnimator>
