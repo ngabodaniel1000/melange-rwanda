@@ -9,6 +9,7 @@ import { FinalCtaSection } from '@/components/sections/final-cta';
 import { Footer } from '@/components/sections/footer';
 import CurrentOpeningsSection from '@/components/sections/current-openings';
 import { client } from '@/sanity/lib/client';
+import { ParallaxSection } from '@/components/sections/parallax';
 
 export default async function Home() {
   const query = `{
@@ -33,6 +34,7 @@ export default async function Home() {
       <MelangeDescriptionSection data={data.about} />
       <CurrentOpeningsSection initialJobs={data.jobs} />
       <ValuesGridSection />
+      <ParallaxSection />
       <FounderStorySection data={data.story} />
       <HowItWorksSection data={data.process} />
       <FinalCtaSection />

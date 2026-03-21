@@ -57,12 +57,21 @@ export function HeroSection({ data }: { data?: any }) {
       </div>
 
       {/* Floating scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+      <div className="absolute bottom-[60px] left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2">
         <span className="text-white/80 text-xs tracking-widest uppercase animate-fade-in" style={{ animationDelay: '1200ms' }}>
           Scroll
         </span>
         <div className="animate-bounce">
           <ChevronDown className="text-white w-8 h-8 drop-shadow-md" />
+        </div>
+      </div>
+
+      {/* Rwandan Flag as Horizontal Stack at Very Bottom - 60px total height */}
+      <div className="absolute bottom-0 left-0 right-0 z-15">
+        <div className="w-full h-[60px] flex flex-col">
+          <div className="w-full h-1/3 bg-[#00A1DE]" /> {/* Blue - top stripe */}
+          <div className="w-full h-1/3 bg-[#FAD201]" /> {/* Yellow - middle stripe */}
+          <div className="w-full h-1/3 bg-[#206A3D]" /> {/* Green - bottom stripe */}
         </div>
       </div>
     </section>
