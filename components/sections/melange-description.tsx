@@ -31,15 +31,15 @@ export function MelangeDescriptionSection({ data }: { data?: any }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
 
-          {/* Visual Anchor Column */}
-          <div className="lg:col-span-2">
+          {/* Visual Anchor Column - Circular Image */}
+          <div className="lg:col-span-2 flex justify-center">
             <ScrollAnimator variant="fade-right" duration={800}>
-              <div className="relative h-[400px] lg:h-[550px] w-full rounded-2xl overflow-hidden shadow-2xl hover-lift border-slate-100 border">
+              <div className="group relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden shadow-2xl hover-lift border-4 border-white ring-4 ring-primary/20">
                 <Image
                   src={imageUrl}
                   alt={title}
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-primary/5 mix-blend-multiply" />
               </div>
