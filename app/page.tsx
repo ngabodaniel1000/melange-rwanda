@@ -21,6 +21,7 @@ export default async function Home() {
     "about": *[_type == "about"][0],
     "story": *[_type == "story"][0],
     "process": *[_type == "process"][0],
+    "parallax": *[_type == "parallax"][0],
     "jobs": *[_type == "job"]
   }`;
 
@@ -34,7 +35,7 @@ export default async function Home() {
       <MelangeDescriptionSection data={data.about} />
       <CurrentOpeningsSection initialJobs={data.jobs} />
       <ValuesGridSection />
-      <ParallaxSection />
+      <ParallaxSection data={data.parallax} />
       <FounderStorySection data={data.story} />
       <HowItWorksSection data={data.process} />
       <FinalCtaSection />
