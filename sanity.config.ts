@@ -8,8 +8,8 @@ import { structure } from './sanity/structure'
 
 export default defineConfig({
   basePath: '/studio',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
+  projectId: "io87fdb4",
+  dataset: "production",
   title: 'Melange Rwanda Studio',
   schema,
   plugins: [
