@@ -1,19 +1,19 @@
 {
   "version": 3,
-  "createdAt": "2026-03-18T09:31:22.296Z",
+  "createdAt": "2026-03-22T20:23:00.867Z",
   "workspaces": [
     {
       "name": "default",
-      "title": "Default",
+      "title": "Melange Rwanda Studio",
       "basePath": "/studio",
       "projectId": "io87fdb4",
       "dataset": "production",
-      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><rect width=\"32\" height=\"32\" rx=\"2\" fill=\"#b087f7\"></rect><text x=\"50%\" y=\"50%\" text-anchor=\"middle\" alignment-baseline=\"middle\" fill=\"hsla(262, 88%, 35%, 1)\" style=\"font-family:Inter, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Liberation Sans&quot;, Helvetica, Arial, system-ui, sans-serif;font-weight:500;font-size:13px;transform:translateY(1px)\">D</text></svg>",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><rect width=\"32\" height=\"32\" rx=\"2\" fill=\"#f77769\"></rect><text x=\"50%\" y=\"50%\" text-anchor=\"middle\" alignment-baseline=\"middle\" fill=\"hsla(6, 90%, 29%, 1)\" style=\"font-family:Inter, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Liberation Sans&quot;, Helvetica, Arial, system-ui, sans-serif;font-weight:500;font-size:13px;transform:translateY(1px)\">MR</text></svg>",
       "mediaLibrary": {
         "enabled": false,
         "__internal": {}
       },
-      "schema": "4eb1f928.create-schema.json",
+      "schema": "6e0eb29d.create-schema.json",
       "tools": "ba47da56.create-tools.json"
     }
   ],
