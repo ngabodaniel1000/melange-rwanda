@@ -7,14 +7,12 @@ interface ParallaxSectionProps {
     data?: {
         backgroundImage?: SanityImageSource;
         altText?: string;
-        overlayOpacity?: number;
     }
 }
 
 
 export function ParallaxSection({ data }: ParallaxSectionProps) {
     const imageUrl = data?.backgroundImage ? urlFor(data.backgroundImage).url() : "/1.jpg";
-    const overlayOpacity = data?.overlayOpacity ? data.overlayOpacity / 100 : 0.1;
 
     return (
         <section
@@ -28,11 +26,6 @@ export function ParallaxSection({ data }: ParallaxSectionProps) {
                     src={imageUrl}
                     alt={data?.altText || "Areas of Impact Background"}
                     className="object-cover w-full h-full"
-                />
-                {/* Dynamic overlay for depth */}
-                <div
-                    className="absolute inset-0 bg-slate-900"
-                    style={{ opacity: overlayOpacity }}
                 />
             </div>
 
