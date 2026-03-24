@@ -20,7 +20,7 @@ export function MissionSection({ data }: { data?: any }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
           
           {/* Text side – appears first on mobile (order-1), second on desktop (order-2) */}
-          <ScrollAnimator variant="fade-left" duration={800} delay={150} className="order-1 lg:order-2">
+          <ScrollAnimator variant="fade-left" duration={800} delay={150} className="order-1 lg:order-1">
             <div className="px-4 sm:px-6 lg:px-0 lg:pr-8 py-8 lg:py-0 space-y-5 md:space-y-6">
               <h2 className="text-3xl text-center sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
                 {title}
@@ -32,8 +32,8 @@ export function MissionSection({ data }: { data?: any }) {
           </ScrollAnimator>
 
           {/* Image side – appears second on mobile (order-2), first on desktop (order-1) */}
-          <ScrollAnimator variant="fade-right" duration={800} className="order-2 lg:order-1">
-            <div className="relative h-[450px] sm:h-[450px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl group hover-lift">
+          <ScrollAnimator variant="fade-right" duration={800} className="order-1 lg:order-1">
+            <div className="relative h-[450px] sm:h-[450px] lg:h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl group hover-lift">
               <div className="absolute inset-0 bg-primary/10 mix-blend-multiply lg:group-hover:bg-transparent transition-all duration-500 z-10" />
               <Image
                 src={imageUrl}
