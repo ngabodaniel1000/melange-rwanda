@@ -7,7 +7,7 @@ import { ChevronDown } from 'lucide-react';
 export function HeroSection({ data }: { data?: any }) {
   const title = data?.title || "Join Rwanda's Elite: We're Hiring!";
   const subtitle = data?.subtitle || "Become a founding freelance partner and provide world-class services to North American clients. Multiple positions available!";
-  const videoUrl = data?.videoUrl || "/bridge2rwanda.mp4";
+  const videoUrl = data?.videoUrl || "/rwanda.mp4";
   const buttonText = data?.buttonText || "VIEW OPEN POSITIONS";
 
   return (
