@@ -13,7 +13,7 @@ export function MelangeDescriptionSection({ data }: { data?: any }) {
   return (
     <section
       id="about"
-      className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden"
+      className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-transparent relative overflow-hidden"
     >
       {/* Decorative blobs */}
       <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 transform -translate-y-1/2 -translate-x-1/2" />
@@ -46,22 +46,12 @@ export function MelangeDescriptionSection({ data }: { data?: any }) {
             </ScrollAnimator>
           </div>
 
-          {/* Cards Column */}
+          {/* Text Column - without cards, just clean text */}
           <div className="lg:col-span-3 space-y-8">
-            {/* Top Card */}
             <ScrollAnimator variant="fade-left" duration={800} delay={100}>
-              <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-100 hover-lift relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full transform translate-x-8 -translate-y-8 group-hover:scale-110 transition-transform duration-500" />
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-5">
-                  {card1Title.includes('Mélange') ? (
-                    <>
-                      A{' '}
-                      <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent">
-                        Mélange
-                      </span>
-                      , Not a Marketplace
-                    </>
-                  ) : card1Title}
+              <div className="space-y-6">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#009933] tracking-tight">
+                  A Mélange, Not a Marketplace
                 </h3>
                 <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-medium">
                   {card1Description}
@@ -69,11 +59,9 @@ export function MelangeDescriptionSection({ data }: { data?: any }) {
               </div>
             </ScrollAnimator>
 
-            {/* Bottom Card */}
             <ScrollAnimator variant="fade-left" duration={800} delay={250}>
-              <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-100 hover-lift relative overflow-hidden group">
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/5 rounded-tr-full transform -translate-x-8 translate-y-8 group-hover:scale-110 transition-transform duration-500" />
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-5">
+              <div className="space-y-6">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#009933] tracking-tight">
                   {card2Title}
                 </h3>
                 <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-medium">

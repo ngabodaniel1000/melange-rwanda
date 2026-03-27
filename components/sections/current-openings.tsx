@@ -24,8 +24,6 @@ export default async function CurrentOpeningsSection({ initialJobs }: { initialJ
       id="current-openings"
       className="w-full bg-white relative pb-16 sm:pb-24 lg:pb-32 overflow-hidden"
     >
-      <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
-
       {/* Header image with scroll animation */}
       <ScrollAnimator variant="zoom-out" duration={900}>
         <div className="relative h-[300px] w-full mb-16 overflow-hidden">

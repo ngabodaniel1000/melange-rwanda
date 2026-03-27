@@ -67,12 +67,42 @@ export function HeroSection({ data }: { data?: any }) {
       </div>
 
       {/* Rwandan Flag as Horizontal Stack at Very Bottom - 60px total height */}
-      <div className="absolute bottom-0 left-0 right-0 z-15">
-        <div className="w-full h-[60px] flex flex-col">
-          <div className="w-full h-1/3 bg-[#00A1DE]" /> {/* Blue - top stripe */}
-          <div className="w-full h-1/3 bg-[#FAD201]" /> {/* Yellow - middle stripe */}
-          <div className="w-full h-1/3 bg-[#206A3D]" /> {/* Green - bottom stripe */}
-        </div>
+      <div className="flex absolute bottom-0 left-0 right-0 z-15">
+        <img
+          src="/africanbar2.png"
+          alt="African Bar"
+          className="w-[200px] h-[40px] lg:h-[50px]"
+        />
+        <img
+          src="/africanbar2.png"
+          alt="African Bar"
+          className="w-[200px] h-[40px] lg:h-[50px]"
+        />
+        <img
+          src="/africanbar2.png"
+          alt="African Bar"
+          className="w-[200px] h-[40px] lg:h-[50px]"
+        />
+        <img
+          src="/africanbar2.png"
+          alt="African Bar"
+          className="w-[200px] h-[40px] lg:h-[50px]"
+        />
+        <img
+          src="/africanbar2.png"
+          alt="African Bar"
+          className="w-[200px] h-[40px] lg:h-[50px]"
+        />
+        <img
+          src="/africanbar2.png"
+          alt="African Bar"
+          className="w-[200px] h-[40px] lg:h-[50px]"
+        />
+        <img
+          src="/africanbar2.png"
+          alt="African Bar"
+          className="w-[200px] h-[40px] lg:h-[50px]"
+        />
       </div>
     </section>
   );

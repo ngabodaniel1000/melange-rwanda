@@ -19,8 +19,7 @@ export function FounderStorySection({ data }: { data?: any }) {
       {/* Decorative background blobs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2 pointer-events-none" />
-      <div className="absolute top-0 left-0 w-2 h-full bg-accent" />
-
+    
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 

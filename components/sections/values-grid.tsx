@@ -1,4 +1,6 @@
+"use client";
 import { ScrollAnimator } from '@/components/scroll-animator';
+import { useState } from 'react';
 import {
   Calendar,
   TrendingUp,
@@ -6,101 +8,129 @@ import {
   Gem,
   BookOpen,
   ShieldCheck,
-  StepForward,
   Unplug,
   Leaf,
   LucideIcon
 } from 'lucide-react';
 
 interface ValueCard {
-  icon?: string | React.ReactNode;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }
 
-const iconMap: Record<string, LucideIcon> = {
-  Calendar,
-  TrendingUp,
-  Handshake,
-  Gem,
-  BookOpen,
-  ShieldCheck,
-  Unplug,
-  Leaf
-};
+interface TabData {
+  id: string;
+  label: string;
+  values: ValueCard[];
+}
 
-const defaultValues: ValueCard[] = [
-  { icon: <Calendar className="w-8 h-8" />, title: 'Long-Term Benefits', description: 'We are building for the long haul. You grow with us from initial projects to ongoing client work.' },
-  { icon: <TrendingUp className="w-8 h-8" />, title: 'Growth Opportunities', description: 'As we win clients, your role, project volume, and earnings grow too.' },
-  { icon: <Handshake className="w-8 h-8" />, title: 'Fair, Project-Based Pay', description: 'You are compensated for each project. When we succeed, you succeed.' },
-  { icon: <Gem className="w-8 h-8" />, title: 'Selective Network', description: 'We are building a small, elite team. You\'ll work alongside top performers.' },
-  { icon: <BookOpen className="w-8 h-8" />, title: 'Training & Development', description: 'Structured training to meet global standards and advance your skills.' },
-  { icon: <ShieldCheck className="w-8 h-8" />, title: 'Quality Without Compromise', description: 'Every deliverable meets North American professional standards.' },
-  { icon: <Unplug className="w-8 h-8" />, title: 'Cultural Bridge', description: 'Our founder splits time between Canada and Rwanda. You\'re part of one team.' },
-  { icon: <Leaf className="w-8 h-8" />, title: 'Sustainable Impact', description: 'Building long-term wealth and capabilities for Rwandans through direct global participation.' },
-];
-
-const colorSets = [
-  { bg: 'bg-primary/10', text: 'text-primary', hoverBg: 'group-hover:bg-primary', blob: 'bg-primary/5 group-hover:bg-primary/10' },
-  { bg: 'bg-secondary/10', text: 'text-secondary-foreground', hoverBg: 'group-hover:bg-secondary', blob: 'bg-secondary/5 group-hover:bg-secondary/10' },
-  { bg: 'bg-accent/10', text: 'text-accent', hoverBg: 'group-hover:bg-accent', blob: 'bg-accent/5 group-hover:bg-accent/10' },
+const tabsData: TabData[] = [
+  {
+    id: 'growth-opportunity',
+    label: 'Growth & Opportunity',
+    values: [
+      { icon: <Calendar className="w-6 h-6 sm:w-7 sm:h-7" />, title: 'Long-Term Benefits', description: 'We are building for the long haul. You grow with us from initial projects to ongoing client work.' },
+      { icon: <TrendingUp className="w-6 h-6 sm:w-7 sm:h-7" />, title: 'Growth Opportunities', description: 'As we win clients, your role, project volume, and earnings grow too.' },
+      { icon: <Handshake className="w-6 h-6 sm:w-7 sm:h-7" />, title: 'Fair, Project-Based Pay', description: 'You are compensated for each project. When we succeed, you succeed.' },
+      { icon: <Gem className="w-6 h-6 sm:w-7 sm:h-7" />, title: 'Selective Network', description: 'We are building a small, elite team. You\'ll work alongside top performers.' },
+    ],
+  },
+  {
+    id: 'excellence-impact',
+    label: 'Excellence & Impact',
+    values: [
+      { icon: <BookOpen className="w-6 h-6 sm:w-7 sm:h-7" />, title: 'Training & Development', description: 'Structured training to meet global standards and advance your skills.' },
+      { icon: <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7" />, title: 'Quality Without Compromise', description: 'Every deliverable meets North American professional standards.' },
+      { icon: <Unplug className="w-6 h-6 sm:w-7 sm:h-7" />, title: 'Cultural Bridge', description: 'Our founder splits time between Canada and Rwanda. You\'re part of one team.' },
+      { icon: <Leaf className="w-6 h-6 sm:w-7 sm:h-7" />, title: 'Sustainable Impact', description: 'Building long-term wealth and capabilities for Rwandans through direct global participation.' },
+    ],
+  },
 ];
 
 export function ValuesGridSection() {
-  const title = 'Why Join Our Founding Team?';
-  const values = defaultValues;
+  const [activeTab, setActiveTab] = useState('growth-opportunity');
 
   return (
     <section
       id="values"
-      className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-secondary/5 relative overflow-hidden"
+      className="w-full py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden"
     >
-      <div className="absolute top-0 right-0 w-full h-96 bg-linear-to-b from-slate-100 to-transparent z-0" />
+    
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Side - Text Content */}
+          <ScrollAnimator variant="fade-right" duration={700}>
+            <div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase mb-4">
+                Why Join Our Founding Team?
 
-      <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* Header row */}
-        <div className="text-center mb-16">
-          <ScrollAnimator variant="fade-down" duration={700}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase">
-              {title}
-            </h2>
+              </h2>
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-4">
+                Our mission is to create sustainable, impactful opportunities for exceptional Rwandan talent, 
+                delivering world-class value to our North American clients. We believe lasting impact is achieved 
+                through meaningful work, integrating local expertise with global opportunities.
+              </p>
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+                'Mélange' means a harmonious mixture of diverse elements—Rwandan talent meets global opportunities 
+                and local excellence drives our success.
+              </p>
+            </div>
           </ScrollAnimator>
-        </div>
 
-        {/* Cards grid – each card staggered */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((value: any, index: number) => {
-            const c = colorSets[index % 3];
-            const IconComponent = typeof value.icon === 'string' ? iconMap[value.icon] : null;
+          {/* Right Side - Tabs and Values with Icons */}
+          <div>
+            {/* Tabs */}
+            <ScrollAnimator variant="fade-left" duration={700} delay={100}>
+              <div className="flex gap-8 border-b border-slate-200 mb-8">
+                {tabsData.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`pb-3 text-lg sm:text-xl font-semibold transition-colors duration-200 ${
+                      activeTab === tab.id
+                        ? 'text-green-600 border-b-2 border-green-600'
+                        : 'text-slate-500 hover:text-slate-700'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </ScrollAnimator>
 
-            return (
-              <ScrollAnimator
-                key={index}
-                variant="zoom-in"
-                delay={index * 80}
-                duration={600}
-              >
-                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-md hover:shadow-xl hover-lift transition-all duration-300 group relative overflow-hidden h-full flex flex-col">
-                  {/* Decorative subtle blob */}
-                  <div className={`absolute -right-4 -top-4 w-32 h-32 rounded-full blur-3xl transition-colors ${c.blob}`} />
-                  <div className="relative z-10 grow">
-                    <div className={`mb-6 inline-flex p-4 rounded-2xl group-hover:scale-110 group-hover:text-white transition-all duration-300 ${c.bg} ${c.text} ${c.hoverBg}`}>
-                      {IconComponent ? <IconComponent className="w-8 h-8" /> : (value.icon || <Gem className="w-8 h-8" />)}
+            {/* Values Grid - 2x2 layout with icon and title side by side */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {tabsData
+                .find((tab) => tab.id === activeTab)
+                ?.values.map((value, index) => (
+                  <ScrollAnimator
+                    key={index}
+                    variant="fade-up"
+                    delay={150 + index * 100}
+                    duration={600}
+                  >
+                    <div className="group">
+                      {/* Icon and Title - side by side */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="inline-flex p-2.5 rounded-xl bg-green-100 text-green-600 group-hover:scale-110 transition-transform duration-300">
+                          {value.icon}
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-green-600 transition-colors duration-300">
+                          {value.title}
+                        </h3>
+                      </div>
+                      <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+                        {value.description}
+                      </p>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-3 text-slate-900 leading-tight">
-                      {value.title}
-                    </h3>
-                    <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
-                      {value.description}
-                    </p>
-                  </div>
-                </div>
-              </ScrollAnimator>
-            );
-          })}
-        </div>
+                  </ScrollAnimator>
+                ))}
+            </div>
+          </div>
 
+        </div>
       </div>
     </section>
   );

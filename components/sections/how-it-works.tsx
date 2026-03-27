@@ -54,7 +54,7 @@ export function HowItWorksSection({ data }: { data?: any }) {
           <div className="text-center mb-16 sm:mb-24">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase">
               OUR PARTNERSHIP MODEL: <br className="hidden sm:block" />
-              <span className="text-blue-600 mt-2 block sm:inline">HOW IT WORKS</span>
+              <span className="mt-2 block sm:inline">HOW IT WORKS</span>
             </h2>
           </div>
         </ScrollAnimator>
@@ -77,14 +77,14 @@ export function HowItWorksSection({ data }: { data?: any }) {
                   duration={700}
                 >
                   <div className="relative z-10 flex items-start gap-6 group">
-                    <div className="w-24 h-24 shrink-0 bg-white rounded-2xl shadow-lg border-2 border-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 group-hover:scale-105 relative">
+                    <div className="w-24 h-24 shrink-0 bg-white rounded-2xl shadow-lg border-2 border-blue-100 flex items-center justify-center text-slate-600 transition-all duration-300 group-hover:scale-105 relative">
                       {IconComponent ? <IconComponent className="w-8 h-8" /> : (step.icon || <Briefcase className="w-8 h-8" />)}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md border-2 border-white">
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-slate-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md border-2 border-white">
                         {step.number}
                       </div>
                     </div>
                     <div className="pt-2">
-                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 transition-colors">
                         {step.title}
                       </h3>
                       <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
