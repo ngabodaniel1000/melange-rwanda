@@ -61,8 +61,8 @@ export function Navbar() {
                                 className="flex items-center"
                             >
                                 <Image
-                                    src="/Logo2.png"
-                                    alt="Mélange Rwanda Logo"
+                                    src="/logo2.png"
+                                    alt="Melange Rwanda Logo"
                                     width={600}
                                     height={100}
                                     className={`transition-all duration-300 object-cover w-[120px] lg:w-[140px] h-[50px]`}
