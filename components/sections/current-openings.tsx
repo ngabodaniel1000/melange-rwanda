@@ -25,12 +25,14 @@ export default async function CurrentOpeningsSection({
     }
   }
 
+  const hasJobs = jobs && jobs.length > 0;
+
   return (
     <section
       id="current-openings"
       className="w-full bg-white relative pb-16 sm:pb-24 lg:pb-32 overflow-hidden"
     >
-      {/* Header image with scroll animation */}
+      {/* Header image with scroll animation - Always show */}
       <ScrollAnimator variant="zoom-out" duration={900}>
         <div className="relative h-[300px] w-full mb-16 overflow-hidden">
           <Image
@@ -40,17 +42,21 @@ export default async function CurrentOpeningsSection({
             className="object-cover hover:scale-105 transition-transform duration-1000"
           />
           <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <ScrollAnimator variant="fade-down" duration={700} delay={200}>
-              <h2 className="text-3xl sm:text-4xl md:text-[44px] font-semibold mb-4 text-white drop-shadow-md font-playfair tracking-tight">
-                Now Accepting Applications
-              </h2>
-            </ScrollAnimator>
-            <ScrollAnimator variant="fade-up" duration={600} delay={350}>
-              <p className="text-base sm:text-lg lg:text-xl text-white/90 max-w-2xl font-inter font-normal drop-shadow-md">
-                We're assembling an exceptional team of freelancers for exciting projects. Click below for the full job details. </p>
-            </ScrollAnimator>
-          </div>
+          
+          {/* Only show the text overlay if there are jobs */}
+          {hasJobs && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+              <ScrollAnimator variant="fade-down" duration={700} delay={200}>
+                <h2 className="text-3xl sm:text-4xl md:text-[44px] font-semibold mb-4 text-white drop-shadow-md font-playfair tracking-tight">
+                  Now Accepting Applications
+                </h2>
+              </ScrollAnimator>
+              <ScrollAnimator variant="fade-up" duration={600} delay={350}>
+                <p className="text-base sm:text-lg lg:text-xl text-white/90 max-w-2xl font-inter font-normal drop-shadow-md">
+                  We're assembling an exceptional team of freelancers for exciting projects. Click below for the full job details. </p>
+              </ScrollAnimator>
+            </div>
+          )}
         </div>
       </ScrollAnimator>
 
@@ -67,22 +73,24 @@ export default async function CurrentOpeningsSection({
           </div>
         </ScrollAnimator>
 
-        {/* CTA – slides up */}
-        <ScrollAnimator variant="fade-up" duration={700} delay={200}>
-          <div className="text-center mt-16 sm:mt-24 px-4">
-            <p className="text-[18px] text-[#333333] font-normal font-inter mb-10 max-w-2xl mx-auto leading-relaxed whitespace-pre-wrap">
-              {generalApplication?.description || "Not seeing your exact role? If you have exceptional skills in writing, research, design, or operations that don't fit these exact descriptions, we still want to hear from you."}
-            </p>
-            <Button
-              asChild
-              className="bg-primary hover:bg-primary/90 text-white rounded-full font-montserrat font-medium text-[16px] px-5 py-3 h-auto tracking-wider shadow-lg hover:scale-105 transition-all"
-            >
-              <a href={generalApplication?.link || "/"} target="_blank" rel="noopener noreferrer">
-                SUBMIT GENERAL APPLICATION
-              </a>
-            </Button>
-          </div>
-        </ScrollAnimator>
+        {/* CTA – slides up - Only show if there are jobs */}
+        {hasJobs && (
+          <ScrollAnimator variant="fade-up" duration={700} delay={200}>
+            <div className="text-center mt-16 sm:mt-24 px-4">
+              <p className="text-[18px] text-[#333333] font-normal font-inter mb-10 max-w-2xl mx-auto leading-relaxed whitespace-pre-wrap">
+                {generalApplication?.description || "Not seeing your exact role? If you have exceptional skills in writing, research, design, or operations that don't fit these exact descriptions, we still want to hear from you."}
+              </p>
+              <Button
+                asChild
+                className="bg-primary hover:bg-primary/90 text-white rounded-full font-montserrat font-medium text-[16px] px-5 py-3 h-auto tracking-wider shadow-lg hover:scale-105 transition-all"
+              >
+                <a href={generalApplication?.link || "/"} target="_blank" rel="noopener noreferrer">
+                  SUBMIT GENERAL APPLICATION
+                </a>
+              </Button>
+            </div>
+          </ScrollAnimator>
+        )}
 
       </div>
     </section>

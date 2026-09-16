@@ -263,9 +263,8 @@ export function JobTable({ jobs }: JobTableProps) {
   if (!jobs?.length) {
     return (
       <div className="text-center py-16 text-muted-foreground">
-        <p className="text-2xl mb-2">🇷🇼</p>
-        <p className="font-medium">No openings at the moment.</p>
-        <p className="text-sm mt-1">Check back soon — we&rsquo;re growing!</p>
+        <p className="text-2xl font-semibold mb-2 text-slate-800">No current freelance openings.</p>
+        <p className="text-sm mt-1">Please check back later for future opportunities</p>
       </div>
     );
   }
